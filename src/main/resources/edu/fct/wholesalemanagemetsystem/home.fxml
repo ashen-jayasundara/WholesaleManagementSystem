@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="864.0" prefWidth="1537.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Pane prefHeight="864.0" prefWidth="1537.0">
+         <children>
+            <ImageView layoutX="1476.0" layoutY="14.0">
+               <image>
+                  <Image url="@assests/closeBtn.png" />
+               </image>
+            </ImageView>
+            <ImageView layoutX="1482.0" layoutY="816.0">
+               <image>
+                  <Image url="@assests/minimizeBtn.png" />
+               </image>
+            </ImageView>
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>
