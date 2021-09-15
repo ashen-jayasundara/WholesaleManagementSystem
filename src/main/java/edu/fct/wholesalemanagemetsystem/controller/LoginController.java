@@ -1,5 +1,6 @@
 package edu.fct.wholesalemanagemetsystem.controller;
 
+import com.jfoenix.controls.JFXButton;
 import edu.fct.wholesalemanagemetsystem.Main;
 import edu.fct.wholesalemanagemetsystem.db.DBConnection;
 import javafx.event.ActionEvent;
@@ -42,7 +43,7 @@ public class LoginController implements Initializable {
     private TextField tfUsername;
 
     @FXML
-    private Button btnLogin;
+    private JFXButton btnLogin;
     private Stage stage;
     private Scene scene;
 
