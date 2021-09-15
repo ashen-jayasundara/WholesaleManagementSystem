@@ -14,12 +14,12 @@
    <children>
       <ImageView fx:id="btnClose" accessibleRole="BUTTON" fitWidth="40.0" layoutX="1053.0" onMousePressed="#closeApplication" preserveRatio="true">
          <image>
-            <Image url="@assests/closeBtn.png" />
+            <Image url="@assets/closeBtn.png" />
          </image>
       </ImageView>
       <ImageView fitHeight="409.0" fitWidth="604.0" layoutX="-101.0" layoutY="99.0" preserveRatio="true" rotate="270.0">
          <image>
-            <Image url="@assests/rice.jpg" />
+            <Image url="@assets/rice.jpg" />
          </image>
       </ImageView>
       <Pane layoutX="495.0" layoutY="83.0" prefHeight="440.0" prefWidth="515.0" style="-fx-background-color: white; -fx-background-radius: 15px;">
