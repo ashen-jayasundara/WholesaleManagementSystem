@@ -51,7 +51,7 @@
                         <Insets left="40.0" />
                      </padding>
                   </JFXButton>
-                  <JFXButton alignment="BASELINE_LEFT" layoutX="10.0" layoutY="92.0" prefHeight="76.0" prefWidth="282.0" styleClass="sideButton" stylesheets="@home.css" text=" Place Order" textFill="WHITE">
+                  <JFXButton fx:id="btnPlaceOrder" alignment="BASELINE_LEFT" layoutX="10.0" layoutY="92.0" onAction="#btnLordPlaceOrder" prefHeight="76.0" prefWidth="282.0" styleClass="sideButton" stylesheets="@home.css" text=" Place Order" textFill="WHITE">
                      <font>
                         <Font name="System Bold" size="18.0" />
                      </font>
@@ -160,12 +160,12 @@
             </VBox>
             <Pane layoutX="-2.0" prefHeight="54.0" prefWidth="1544.0" style="-fx-background-color: #002447;">
                <children>
-                  <JFXButton fx:id="btnLogout" alignment="TOP_LEFT" buttonType="RAISED" layoutX="1282.0" layoutY="6.0" onAction="#loginOut" prefHeight="41.0" prefWidth="119.0" style="-fx-background-color: green; -fx-background-radius: 30px; -fx-border-color: white; -fx-border-radius: 30px;" text="Log out" textFill="WHITE">
+                  <JFXButton fx:id="btnLogout" alignment="TOP_LEFT" buttonType="RAISED" layoutX="1309.0" layoutY="12.0" onAction="#loginOut" prefHeight="22.0" prefWidth="86.0" style="-fx-background-color: green; -fx-background-radius: 30px; -fx-border-color: white; -fx-border-radius: 30px;" text="Log out" textFill="WHITE">
                      <font>
-                        <Font name="System Bold" size="14.0" />
+                        <Font name="System Bold" size="12.0" />
                      </font>
                      <graphic>
-                        <ImageView fitWidth="30.0" preserveRatio="true">
+                        <ImageView fitWidth="20.0" preserveRatio="true">
                            <image>
                               <Image url="@assets/logout.png" />
                            </image>
@@ -177,18 +177,18 @@
                         <Font name="System Bold" size="24.0" />
                      </font>
                   </Label>
-                  <JFXButton fx:id="btnClose" contentDisplay="GRAPHIC_ONLY" layoutX="1480.0" layoutY="-1.0" onAction="#closeApplication">
+                  <JFXButton fx:id="btnClose" contentDisplay="GRAPHIC_ONLY" layoutX="1491.0" layoutY="8.0" onAction="#closeApplication" prefHeight="27.0" prefWidth="23.0">
                      <graphic>
-                        <ImageView>
+                        <ImageView fitHeight="30.0" fitWidth="30.0">
                            <image>
                               <Image url="@assets/closeBtn.png" />
                            </image>
                         </ImageView>
                      </graphic>
                   </JFXButton>
-                  <JFXButton fx:id="btnMinimize" contentDisplay="GRAPHIC_ONLY" layoutX="1430.0" layoutY="-1.0" onAction="#minimizeApplication">
+                  <JFXButton fx:id="btnMinimize" contentDisplay="GRAPHIC_ONLY" layoutX="1458.0" layoutY="8.0" onAction="#minimizeApplication" prefHeight="26.0" prefWidth="36.0">
                      <graphic>
-                        <ImageView>
+                        <ImageView fitHeight="30.0" fitWidth="30.0">
                            <image>
                               <Image url="@assets/minimizeBtn.png" />
                            </image>

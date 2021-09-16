@@ -35,6 +35,9 @@ public class HomeController {
     private JFXButton btnDashbod;
 
     @FXML
+    private JFXButton btnPlaceOrder;
+
+    @FXML
     private JFXButton btnLogout;
 
     @FXML
@@ -81,7 +84,17 @@ public class HomeController {
     void btnLoadDashboard(ActionEvent event) throws IOException {
         Pane newLoadedPane =  FXMLLoader.load(Main.class.getResource("dashboard.fxml"));
         showPane.getChildren().add(newLoadedPane);
+        btnDashbod.setDefaultButton(true);
+        btnPlaceOrder.setDefaultButton(false);
 
+    }
+
+    @FXML
+    void btnLordPlaceOrder(ActionEvent event) throws IOException {
+        Pane newLoadedPane =  FXMLLoader.load(Main.class.getResource("placeOrder.fxml"));
+        showPane.getChildren().add(newLoadedPane);
+        btnDashbod.setDefaultButton(false);
+        btnPlaceOrder.setDefaultButton(true);
     }
 
     public void displayUserName(String username) {

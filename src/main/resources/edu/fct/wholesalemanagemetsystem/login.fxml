@@ -17,7 +17,7 @@
             <Image url="@assets/rice.jpg" />
          </image>
       </ImageView>
-      <Pane layoutX="495.0" layoutY="83.0" prefHeight="440.0" prefWidth="515.0" style="-fx-background-color: white; -fx-background-radius: 15px;">
+      <Pane layoutX="451.0" layoutY="80.0" prefHeight="440.0" prefWidth="515.0" style="-fx-background-color: white; -fx-background-radius: 15px;">
          <children>
             <Label layoutX="202.0" layoutY="55.0" text="LOGIN">
                <font>
