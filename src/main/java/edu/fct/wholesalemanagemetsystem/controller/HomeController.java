@@ -13,6 +13,7 @@ import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
@@ -23,6 +24,9 @@ public class HomeController {
 
     @FXML
     private AnchorPane scenePane;
+
+    @FXML
+    private AnchorPane showPane;
 
     @FXML
     private Label lUsername;
@@ -39,12 +43,13 @@ public class HomeController {
     @FXML
     private JFXButton btnMinimize;
     private Stage stage;
+    private Scene scene;
 
 
     @FXML
     void closeApplication(ActionEvent event)  {
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
-        alert.setTitle("Logout");
+        alert.setTitle("Close");
         alert.setHeaderText("Do you want to close.");
         if (alert.showAndWait().get() == ButtonType.OK) {
             this.stage = (Stage)this.scenePane.getScene().getWindow();
@@ -55,10 +60,10 @@ public class HomeController {
     @FXML
     void loginOut(ActionEvent event) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("login.fxml"));
-        Scene scene = new Scene(fxmlLoader.load());
-        //stage.initStyle(StageStyle.UNDECORATED);
-        stage.setTitle("Login");
-        stage.setScene(scene);
+        scene = new Scene(fxmlLoader.load());
+        this.stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        this.stage.setScene(this.scene);
+        this.stage.setTitle("Login");
         Dimension dimension = Toolkit.getDefaultToolkit().getScreenSize();
         stage.show();
 
@@ -72,4 +77,20 @@ public class HomeController {
         stage.setIconified(true);
     }
 
+    @FXML
+    void btnLoadDashboard(ActionEvent event) throws IOException {
+        Pane newLoadedPane =  FXMLLoader.load(Main.class.getResource("dashboard.fxml"));
+        showPane.getChildren().add(newLoadedPane);
+
+    }
+
+    public void displayUserName(String username) {
+        lUsername.setText(username);
+    }
+
+    public void btnLoadDashboard1() throws IOException {
+        Pane newLoadedPane =  FXMLLoader.load(Main.class.getResource("dashboard.fxml"));
+        showPane.getChildren().add(newLoadedPane);
+        btnDashbod.setDefaultButton(true);
+    }
 }

@@ -3,6 +3,7 @@
 <?import com.jfoenix.controls.JFXButton?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -26,7 +27,7 @@
                                     <Image url="@assets/user.png" />
                                  </image>
                               </ImageView>
-                              <Label fx:id="lUsername" layoutX="112.0" layoutY="27.0" prefHeight="61.0" prefWidth="157.0" text="admin" textFill="WHITE">
+                              <Label fx:id="lUsername" layoutX="112.0" layoutY="27.0" prefHeight="61.0" prefWidth="157.0" text="person" textFill="WHITE">
                                  <font>
                                     <Font name="System Bold" size="18.0" />
                                  </font>
@@ -35,7 +36,7 @@
                         </Pane>
                      </children>
                   </HBox>
-                  <JFXButton fx:id="btnDashbod" alignment="BASELINE_LEFT" defaultButton="true" prefHeight="76.0" prefWidth="282.0" styleClass="sideButton" stylesheets="@home.css" text=" Dashboard" textFill="WHITE">
+                  <JFXButton fx:id="btnDashbod" alignment="BASELINE_LEFT" onAction="#btnLoadDashboard" prefHeight="76.0" prefWidth="282.0" styleClass="sideButton" stylesheets="@home.css" text=" Dashboard" textFill="WHITE">
                      <font>
                         <Font name="System Bold" size="18.0" />
                      </font>
@@ -50,7 +51,7 @@
                         <Insets left="40.0" />
                      </padding>
                   </JFXButton>
-                  <JFXButton alignment="BASELINE_LEFT" focusTraversable="false" layoutX="10.0" layoutY="92.0" prefHeight="76.0" prefWidth="282.0" styleClass="sideButton" stylesheets="@home.css" text=" Place Order" textFill="WHITE">
+                  <JFXButton alignment="BASELINE_LEFT" layoutX="10.0" layoutY="92.0" prefHeight="76.0" prefWidth="282.0" styleClass="sideButton" stylesheets="@home.css" text=" Place Order" textFill="WHITE">
                      <font>
                         <Font name="System Bold" size="18.0" />
                      </font>
@@ -196,7 +197,11 @@
                   </JFXButton>
                </children>
             </Pane>
-            <AnchorPane layoutX="271.0" layoutY="53.0" prefHeight="811.0" prefWidth="1268.0" style="-fx-background-color: grey;" />
+            <ScrollPane hbarPolicy="NEVER" layoutX="271.0" layoutY="52.0" prefHeight="811.0" prefWidth="1267.0">
+              <content>
+                <AnchorPane fx:id="showPane" minHeight="0.0" minWidth="0.0" prefHeight="815.0" prefWidth="1267.0" />
+              </content>
+            </ScrollPane>
          </children>
       </Pane>
    </children>

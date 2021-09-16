@@ -67,8 +67,9 @@ public class LoginController implements Initializable {
             if (rs.getString(2).equals(password)) {
                 FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("home.fxml"));
                 scene = new Scene(fxmlLoader.load());
-//                HomeController home = fxmlLoader.getController();
-//                home.displayUserName(username);
+                HomeController home = fxmlLoader.getController();
+                home.displayUserName(username);
+                home.btnLoadDashboard1();
                 this.stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
                 this.stage.setScene(this.scene);
                 this.stage.setTitle("Home");
