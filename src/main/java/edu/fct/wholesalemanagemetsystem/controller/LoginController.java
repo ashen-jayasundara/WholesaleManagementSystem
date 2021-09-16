@@ -10,10 +10,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
-import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
-import javafx.scene.image.ImageView;
-import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
@@ -34,7 +31,7 @@ public class LoginController implements Initializable {
     private AnchorPane scenePane;
 
     @FXML
-    private ImageView btnClose;
+    private JFXButton btnClose;
 
     @FXML
     private PasswordField pfPassword;
@@ -48,7 +45,7 @@ public class LoginController implements Initializable {
     private Scene scene;
 
     @FXML
-    void closeApplication(MouseEvent event){
+    void closeApplication(ActionEvent event) {
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
         alert.setTitle("Logout");
         alert.setHeaderText("Do you want to close.");

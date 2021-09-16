@@ -12,11 +12,6 @@
 
 <AnchorPane fx:id="scenePane" prefHeight="600.0" prefWidth="900.0" style="-fx-background-color: #EEEEEE;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.fct.wholesalemanagemetsystem.controller.LoginController">
    <children>
-      <ImageView fx:id="btnClose" accessibleRole="BUTTON" fitWidth="40.0" layoutX="1053.0" onMousePressed="#closeApplication" preserveRatio="true">
-         <image>
-            <Image url="@assets/closeBtn.png" />
-         </image>
-      </ImageView>
       <ImageView fitHeight="409.0" fitWidth="604.0" layoutX="-101.0" layoutY="99.0" preserveRatio="true" rotate="270.0">
          <image>
             <Image url="@assets/rice.jpg" />
@@ -46,5 +41,17 @@
             </JFXButton>
          </children>
       </Pane>
+      <JFXButton fx:id="btnClose" alignment="BASELINE_LEFT" buttonType="RAISED" contentDisplay="GRAPHIC_ONLY" graphicTextGap="0.0" layoutX="950.0" onAction="#closeApplication" prefHeight="30.0" prefWidth="24.0" ripplerFill="WHITE">
+         <font>
+            <Font size="14.0" />
+         </font>
+         <graphic>
+            <ImageView accessibleRole="BUTTON" fitWidth="40.0" onMousePressed="#closeApplication" preserveRatio="true">
+               <image>
+                  <Image url="@assets/closeBtn.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </JFXButton>
    </children>
 </AnchorPane>
