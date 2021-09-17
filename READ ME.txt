@@ -19,3 +19,4 @@ branch test 2
 master change
 
 test change
+Master change 2
