@@ -12,3 +12,5 @@ git push -u origin master
 git remote add origin https://github.com/AshenJZ/WholesaleManagementSystem.git
 git branch -M main
 git push -u origin master
+
+Branch test
