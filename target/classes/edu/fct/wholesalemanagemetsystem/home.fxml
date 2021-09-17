@@ -66,7 +66,7 @@
                         <Insets left="40.0" />
                      </padding>
                   </JFXButton>
-                  <JFXButton alignment="BASELINE_LEFT" layoutX="10.0" layoutY="168.0" prefHeight="76.0" prefWidth="282.0" styleClass="sideButton" stylesheets="@home.css" text=" Item" textFill="WHITE">
+                  <JFXButton fx:id="btnItem" alignment="BASELINE_LEFT" layoutX="10.0" layoutY="168.0" onAction="#btnLordItem" prefHeight="76.0" prefWidth="282.0" styleClass="sideButton" stylesheets="@home.css" text=" Item" textFill="WHITE">
                      <font>
                         <Font name="System Bold" size="18.0" />
                      </font>
@@ -81,7 +81,7 @@
                         <Insets left="40.0" />
                      </padding>
                   </JFXButton>
-                  <JFXButton alignment="BASELINE_LEFT" layoutX="10.0" layoutY="244.0" prefHeight="76.0" prefWidth="282.0" styleClass="sideButton" stylesheets="@home.css" text=" Customer" textFill="WHITE">
+                  <JFXButton fx:id="btnCustomer" alignment="BASELINE_LEFT" layoutX="10.0" layoutY="244.0" onAction="#btLordCustomer" prefHeight="76.0" prefWidth="282.0" styleClass="sideButton" stylesheets="@home.css" text=" Customer" textFill="WHITE">
                      <font>
                         <Font name="System Bold" size="18.0" />
                      </font>
@@ -96,7 +96,7 @@
                         <Insets left="40.0" />
                      </padding>
                   </JFXButton>
-                  <JFXButton alignment="BASELINE_LEFT" layoutX="10.0" layoutY="168.0" prefHeight="76.0" prefWidth="282.0" styleClass="sideButton" stylesheets="@home.css" text=" Supplier" textFill="WHITE">
+                  <JFXButton fx:id="btnSupplier" alignment="BASELINE_LEFT" layoutX="10.0" layoutY="168.0" onAction="#btnLordSupplier" prefHeight="76.0" prefWidth="282.0" styleClass="sideButton" stylesheets="@home.css" text=" Supplier" textFill="WHITE">
                      <font>
                         <Font name="System Bold" size="18.0" />
                      </font>
@@ -111,7 +111,7 @@
                         <Insets left="40.0" />
                      </padding>
                   </JFXButton>
-                  <JFXButton alignment="BASELINE_LEFT" layoutX="10.0" layoutY="244.0" prefHeight="76.0" prefWidth="282.0" styleClass="sideButton" stylesheets="@home.css" text=" Orders" textFill="WHITE">
+                  <JFXButton fx:id="btnOrders" alignment="BASELINE_LEFT" layoutX="10.0" layoutY="244.0" onAction="#btnLordOrders" prefHeight="76.0" prefWidth="282.0" styleClass="sideButton" stylesheets="@home.css" text=" Orders" textFill="WHITE">
                      <font>
                         <Font name="System Bold" size="18.0" />
                      </font>
@@ -126,7 +126,7 @@
                         <Insets left="40.0" />
                      </padding>
                   </JFXButton>
-                  <JFXButton alignment="BASELINE_LEFT" layoutX="10.0" layoutY="320.0" prefHeight="76.0" prefWidth="282.0" styleClass="sideButton" stylesheets="@home.css" text=" Purchases" textFill="WHITE">
+                  <JFXButton fx:id="btnPurchases" alignment="BASELINE_LEFT" layoutX="10.0" layoutY="320.0" onAction="#btnLordPurchases" prefHeight="76.0" prefWidth="282.0" styleClass="sideButton" stylesheets="@home.css" text=" Purchases" textFill="WHITE">
                      <font>
                         <Font name="System Bold" size="18.0" />
                      </font>
@@ -141,7 +141,7 @@
                         <Insets left="40.0" />
                      </padding>
                   </JFXButton>
-                  <JFXButton alignment="BASELINE_LEFT" layoutX="10.0" layoutY="548.0" prefHeight="76.0" prefWidth="282.0" styleClass="sideButton" stylesheets="@home.css" text=" Account" textFill="WHITE">
+                  <JFXButton fx:id="btnAccount" alignment="BASELINE_LEFT" layoutX="10.0" layoutY="548.0" onAction="#btnLordAccount" prefHeight="76.0" prefWidth="282.0" styleClass="sideButton" stylesheets="@home.css" text=" Account" textFill="WHITE">
                      <font>
                         <Font name="System Bold" size="18.0" />
                      </font>

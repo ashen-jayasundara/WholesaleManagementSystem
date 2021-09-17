@@ -38,6 +38,24 @@ public class HomeController {
     private JFXButton btnPlaceOrder;
 
     @FXML
+    private JFXButton btnItem;
+
+    @FXML
+    private JFXButton btnCustomer;
+
+    @FXML
+    private JFXButton btnSupplier;
+
+    @FXML
+    private JFXButton btnOrders;
+
+    @FXML
+    private JFXButton btnPurchases;
+
+    @FXML
+    private JFXButton btnAccount;
+
+    @FXML
     private JFXButton btnLogout;
 
     @FXML
@@ -86,6 +104,12 @@ public class HomeController {
         showPane.getChildren().add(newLoadedPane);
         btnDashbod.setDefaultButton(true);
         btnPlaceOrder.setDefaultButton(false);
+        btnItem.setDefaultButton(false);
+        btnCustomer.setDefaultButton(false);
+        btnSupplier.setDefaultButton(false);
+        btnOrders.setDefaultButton(false);
+        btnPurchases.setDefaultButton(false);
+        btnAccount.setDefaultButton(false);
 
     }
 
@@ -95,6 +119,96 @@ public class HomeController {
         showPane.getChildren().add(newLoadedPane);
         btnDashbod.setDefaultButton(false);
         btnPlaceOrder.setDefaultButton(true);
+        btnItem.setDefaultButton(false);
+        btnCustomer.setDefaultButton(false);
+        btnSupplier.setDefaultButton(false);
+        btnOrders.setDefaultButton(false);
+        btnPurchases.setDefaultButton(false);
+        btnAccount.setDefaultButton(false);
+    }
+
+    @FXML
+    void btLordCustomer(ActionEvent event) {
+        //Pane newLoadedPane =  FXMLLoader.load(Main.class.getResource("customer.fxml"));
+        //showPane.getChildren().add(newLoadedPane);
+        btnDashbod.setDefaultButton(false);
+        btnPlaceOrder.setDefaultButton(false);
+        btnItem.setDefaultButton(false);
+        btnCustomer.setDefaultButton(true);
+        btnSupplier.setDefaultButton(false);
+        btnOrders.setDefaultButton(false);
+        btnPurchases.setDefaultButton(false);
+        btnAccount.setDefaultButton(false);
+    }
+
+    @FXML
+    void btnLordAccount(ActionEvent event) {
+        //Pane newLoadedPane =  FXMLLoader.load(Main.class.getResource("account.fxml"));
+        //showPane.getChildren().add(newLoadedPane);
+        btnDashbod.setDefaultButton(false);
+        btnPlaceOrder.setDefaultButton(false);
+        btnItem.setDefaultButton(false);
+        btnCustomer.setDefaultButton(false);
+        btnSupplier.setDefaultButton(false);
+        btnOrders.setDefaultButton(false);
+        btnPurchases.setDefaultButton(false);
+        btnAccount.setDefaultButton(true);
+    }
+
+    @FXML
+    void btnLordItem(ActionEvent event) {
+        //Pane newLoadedPane =  FXMLLoader.load(Main.class.getResource("item.fxml"));
+        //showPane.getChildren().add(newLoadedPane);
+        btnDashbod.setDefaultButton(false);
+        btnPlaceOrder.setDefaultButton(false);
+        btnItem.setDefaultButton(true);
+        btnCustomer.setDefaultButton(false);
+        btnSupplier.setDefaultButton(false);
+        btnOrders.setDefaultButton(false);
+        btnPurchases.setDefaultButton(false);
+        btnAccount.setDefaultButton(false);
+    }
+
+    @FXML
+    void btnLordOrders(ActionEvent event) {
+        //Pane newLoadedPane =  FXMLLoader.load(Main.class.getResource("orders.fxml"));
+        //showPane.getChildren().add(newLoadedPane);
+        btnDashbod.setDefaultButton(false);
+        btnPlaceOrder.setDefaultButton(false);
+        btnItem.setDefaultButton(false);
+        btnCustomer.setDefaultButton(false);
+        btnSupplier.setDefaultButton(false);
+        btnOrders.setDefaultButton(true);
+        btnPurchases.setDefaultButton(false);
+        btnAccount.setDefaultButton(false);
+    }
+
+    @FXML
+    void btnLordPurchases(ActionEvent event) {
+        //Pane newLoadedPane =  FXMLLoader.load(Main.class.getResource("purchases.fxml"));
+        //showPane.getChildren().add(newLoadedPane);
+        btnDashbod.setDefaultButton(false);
+        btnPlaceOrder.setDefaultButton(false);
+        btnItem.setDefaultButton(false);
+        btnCustomer.setDefaultButton(false);
+        btnSupplier.setDefaultButton(false);
+        btnOrders.setDefaultButton(false);
+        btnPurchases.setDefaultButton(true);
+        btnAccount.setDefaultButton(false);
+    }
+
+    @FXML
+    void btnLordSupplier(ActionEvent event) {
+        //Pane newLoadedPane =  FXMLLoader.load(Main.class.getResource("supplier.fxml"));
+        //showPane.getChildren().add(newLoadedPane);
+        btnDashbod.setDefaultButton(false);
+        btnPlaceOrder.setDefaultButton(false);
+        btnItem.setDefaultButton(false);
+        btnCustomer.setDefaultButton(false);
+        btnSupplier.setDefaultButton(true);
+        btnOrders.setDefaultButton(false);
+        btnPurchases.setDefaultButton(false);
+        btnAccount.setDefaultButton(false);
     }
 
     public void displayUserName(String username) {
