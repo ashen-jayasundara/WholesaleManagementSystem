@@ -128,9 +128,9 @@ public class HomeController {
     }
 
     @FXML
-    void btLordCustomer(ActionEvent event) {
-        //Pane newLoadedPane =  FXMLLoader.load(Main.class.getResource("customer.fxml"));
-        //showPane.getChildren().add(newLoadedPane);
+    void btLordCustomer(ActionEvent event) throws IOException {
+        Pane newLoadedPane =  FXMLLoader.load(Main.class.getResource("customer.fxml"));
+        showPane.getChildren().add(newLoadedPane);
         btnDashbod.setDefaultButton(false);
         btnPlaceOrder.setDefaultButton(false);
         btnItem.setDefaultButton(false);
@@ -142,9 +142,9 @@ public class HomeController {
     }
 
     @FXML
-    void btnLordAccount(ActionEvent event) {
-        //Pane newLoadedPane =  FXMLLoader.load(Main.class.getResource("account.fxml"));
-        //showPane.getChildren().add(newLoadedPane);
+    void btnLordAccount(ActionEvent event) throws IOException {
+        Pane newLoadedPane =  FXMLLoader.load(Main.class.getResource("account.fxml"));
+        showPane.getChildren().add(newLoadedPane);
         btnDashbod.setDefaultButton(false);
         btnPlaceOrder.setDefaultButton(false);
         btnItem.setDefaultButton(false);
@@ -156,9 +156,9 @@ public class HomeController {
     }
 
     @FXML
-    void btnLordItem(ActionEvent event) {
-        //Pane newLoadedPane =  FXMLLoader.load(Main.class.getResource("item.fxml"));
-        //showPane.getChildren().add(newLoadedPane);
+    void btnLordItem(ActionEvent event) throws IOException {
+        Pane newLoadedPane =  FXMLLoader.load(Main.class.getResource("item.fxml"));
+        showPane.getChildren().add(newLoadedPane);
         btnDashbod.setDefaultButton(false);
         btnPlaceOrder.setDefaultButton(false);
         btnItem.setDefaultButton(true);
@@ -170,9 +170,9 @@ public class HomeController {
     }
 
     @FXML
-    void btnLordOrders(ActionEvent event) {
-        //Pane newLoadedPane =  FXMLLoader.load(Main.class.getResource("orders.fxml"));
-        //showPane.getChildren().add(newLoadedPane);
+    void btnLordOrders(ActionEvent event) throws IOException {
+        Pane newLoadedPane =  FXMLLoader.load(Main.class.getResource("orders.fxml"));
+        showPane.getChildren().add(newLoadedPane);
         btnDashbod.setDefaultButton(false);
         btnPlaceOrder.setDefaultButton(false);
         btnItem.setDefaultButton(false);
@@ -184,9 +184,9 @@ public class HomeController {
     }
 
     @FXML
-    void btnLordPurchases(ActionEvent event) {
-        //Pane newLoadedPane =  FXMLLoader.load(Main.class.getResource("purchases.fxml"));
-        //showPane.getChildren().add(newLoadedPane);
+    void btnLordPurchases(ActionEvent event) throws IOException {
+        Pane newLoadedPane =  FXMLLoader.load(Main.class.getResource("purchases.fxml"));
+        showPane.getChildren().add(newLoadedPane);
         btnDashbod.setDefaultButton(false);
         btnPlaceOrder.setDefaultButton(false);
         btnItem.setDefaultButton(false);
@@ -198,9 +198,9 @@ public class HomeController {
     }
 
     @FXML
-    void btnLordSupplier(ActionEvent event) {
-        //Pane newLoadedPane =  FXMLLoader.load(Main.class.getResource("supplier.fxml"));
-        //showPane.getChildren().add(newLoadedPane);
+    void btnLordSupplier(ActionEvent event) throws IOException {
+        Pane newLoadedPane =  FXMLLoader.load(Main.class.getResource("supplier.fxml"));
+        showPane.getChildren().add(newLoadedPane);
         btnDashbod.setDefaultButton(false);
         btnPlaceOrder.setDefaultButton(false);
         btnItem.setDefaultButton(false);
