@@ -32,7 +32,7 @@ public class HomeController {
     private Label lUsername;
 
     @FXML
-    private JFXButton btnDashbod;
+    private JFXButton btnDashboard;
 
     @FXML
     private JFXButton btnPlaceOrder;
@@ -65,6 +65,8 @@ public class HomeController {
     private JFXButton btnMinimize;
     private Stage stage;
     private Scene scene;
+
+    public int  num;
 
 
     @FXML
@@ -102,7 +104,7 @@ public class HomeController {
     void btnLoadDashboard(ActionEvent event) throws IOException {
         Pane newLoadedPane =  FXMLLoader.load(Main.class.getResource("dashboard.fxml"));
         showPane.getChildren().add(newLoadedPane);
-        btnDashbod.setDefaultButton(true);
+        btnDashboard.setDefaultButton(true);
         btnPlaceOrder.setDefaultButton(false);
         btnItem.setDefaultButton(false);
         btnCustomer.setDefaultButton(false);
@@ -110,6 +112,8 @@ public class HomeController {
         btnOrders.setDefaultButton(false);
         btnPurchases.setDefaultButton(false);
         btnAccount.setDefaultButton(false);
+        //num = 0;
+        //changeSelectedButton();
 
     }
 
@@ -117,7 +121,7 @@ public class HomeController {
     void btnLordPlaceOrder(ActionEvent event) throws IOException {
         Pane newLoadedPane =  FXMLLoader.load(Main.class.getResource("placeOrder.fxml"));
         showPane.getChildren().add(newLoadedPane);
-        btnDashbod.setDefaultButton(false);
+        btnDashboard.setDefaultButton(false);
         btnPlaceOrder.setDefaultButton(true);
         btnItem.setDefaultButton(false);
         btnCustomer.setDefaultButton(false);
@@ -131,7 +135,7 @@ public class HomeController {
     void btLordCustomer(ActionEvent event) throws IOException {
         Pane newLoadedPane =  FXMLLoader.load(Main.class.getResource("customer.fxml"));
         showPane.getChildren().add(newLoadedPane);
-        btnDashbod.setDefaultButton(false);
+        btnDashboard.setDefaultButton(false);
         btnPlaceOrder.setDefaultButton(false);
         btnItem.setDefaultButton(false);
         btnCustomer.setDefaultButton(true);
@@ -145,7 +149,7 @@ public class HomeController {
     void btnLordAccount(ActionEvent event) throws IOException {
         Pane newLoadedPane =  FXMLLoader.load(Main.class.getResource("account.fxml"));
         showPane.getChildren().add(newLoadedPane);
-        btnDashbod.setDefaultButton(false);
+        btnDashboard.setDefaultButton(false);
         btnPlaceOrder.setDefaultButton(false);
         btnItem.setDefaultButton(false);
         btnCustomer.setDefaultButton(false);
@@ -159,7 +163,7 @@ public class HomeController {
     void btnLordItem(ActionEvent event) throws IOException {
         Pane newLoadedPane =  FXMLLoader.load(Main.class.getResource("item.fxml"));
         showPane.getChildren().add(newLoadedPane);
-        btnDashbod.setDefaultButton(false);
+        btnDashboard.setDefaultButton(false);
         btnPlaceOrder.setDefaultButton(false);
         btnItem.setDefaultButton(true);
         btnCustomer.setDefaultButton(false);
@@ -173,7 +177,7 @@ public class HomeController {
     void btnLordOrders(ActionEvent event) throws IOException {
         Pane newLoadedPane =  FXMLLoader.load(Main.class.getResource("orders.fxml"));
         showPane.getChildren().add(newLoadedPane);
-        btnDashbod.setDefaultButton(false);
+        btnDashboard.setDefaultButton(false);
         btnPlaceOrder.setDefaultButton(false);
         btnItem.setDefaultButton(false);
         btnCustomer.setDefaultButton(false);
@@ -187,7 +191,7 @@ public class HomeController {
     void btnLordPurchases(ActionEvent event) throws IOException {
         Pane newLoadedPane =  FXMLLoader.load(Main.class.getResource("purchases.fxml"));
         showPane.getChildren().add(newLoadedPane);
-        btnDashbod.setDefaultButton(false);
+        btnDashboard.setDefaultButton(false);
         btnPlaceOrder.setDefaultButton(false);
         btnItem.setDefaultButton(false);
         btnCustomer.setDefaultButton(false);
@@ -201,7 +205,7 @@ public class HomeController {
     void btnLordSupplier(ActionEvent event) throws IOException {
         Pane newLoadedPane =  FXMLLoader.load(Main.class.getResource("supplier.fxml"));
         showPane.getChildren().add(newLoadedPane);
-        btnDashbod.setDefaultButton(false);
+        btnDashboard.setDefaultButton(false);
         btnPlaceOrder.setDefaultButton(false);
         btnItem.setDefaultButton(false);
         btnCustomer.setDefaultButton(false);
@@ -218,8 +222,19 @@ public class HomeController {
     public void btnLoadDashboard1() throws IOException {
         Pane newLoadedPane =  FXMLLoader.load(Main.class.getResource("dashboard.fxml"));
         showPane.getChildren().add(newLoadedPane);
-        btnDashbod.setDefaultButton(true);
+        btnDashboard.setDefaultButton(true);
     }
+
+    public void changeSelectedButton() {
+        String[] buttons = {"btnDashboard", "btnPlaceOrder", "btnItem", "btnCustomer", "btnSupplier", "btnOrders", "btnPurchases", "btnAccount"};
+        for (int i = 0; i<8; i++) {
+            JFXButton jfxButton = new JFXButton(buttons[i]);
+            jfxButton.setDefaultButton(false);
+        }
+        JFXButton jfxButton2 = new JFXButton(buttons[num]);
+        jfxButton2.setDefaultButton(true);
+    }
+
 }
 
 //test change 2
