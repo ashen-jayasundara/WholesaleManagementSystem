@@ -62,7 +62,7 @@ public class LoginController implements Initializable {
         String password = this.pfPassword.getText();
         Connection con = DBConnection.getInstance().getConnection();
         Statement st = con.createStatement();
-        ResultSet rs = st.executeQuery("select * from users where userName='" + username + "'");
+        ResultSet rs = st.executeQuery("select * from user_info where username='" + username + "'");
         if (rs.next()) {
             if (rs.getString(2).equals(password)) {
                 FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("home.fxml"));
