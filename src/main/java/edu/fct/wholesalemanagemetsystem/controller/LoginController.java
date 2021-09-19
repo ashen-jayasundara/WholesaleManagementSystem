@@ -14,6 +14,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
+
 import javax.swing.*;
 import java.awt.*;
 import java.io.IOException;
@@ -80,10 +81,22 @@ public class LoginController implements Initializable {
                 stage.setX((dimension.width/2) - (stage.getWidth()/2));
                 stage.setY((dimension.height/2) - (stage.getHeight()/2));
             } else {
-                JOptionPane.showMessageDialog((Component) null, "invalid password");
+                //JOptionPane.showMessageDialog((Component) null, "invalid password");
+                Alert alert = new Alert(Alert.AlertType.WARNING);
+                alert.setTitle("Warning!");
+                alert.setHeaderText("Your Password is Incorrect.");
+                alert.setContentText("Please Re-enter your Password.");
+
+                alert.showAndWait();
             }
         } else {
-            JOptionPane.showMessageDialog((Component) null, "invalid username");
+            //JOptionPane.showMessageDialog((Component) null, "invalid username");
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Warning!");
+            alert.setHeaderText("Your Username is Incorrect.");
+            alert.setContentText("Please Re-enter your Username.");
+
+            alert.showAndWait();
         }
     }
 

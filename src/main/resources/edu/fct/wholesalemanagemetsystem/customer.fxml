@@ -1,8 +1,59 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
 
-
-<AnchorPane prefHeight="815.0" prefWidth="1267.0" style="-fx-background-color: blue;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.fct.wholesalemanagemetsystem.controller.CustomerController">
-
+<AnchorPane prefHeight="815.0" prefWidth="1267.0" style="-fx-background-color: #EEEEEE;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.fct.wholesalemanagemetsystem.controller.CustomerController">
+   <children>
+      <Pane focusTraversable="true" prefHeight="815.0" prefWidth="1267.0">
+         <children>
+            <JFXButton fx:id="btnNewCustomer" layoutX="68.0" layoutY="71.0" onAction="#btnLoadNewCustomer" style="-fx-background-radius: 10px;" styleClass="sideButton" stylesheets="@home.css" text="New Customer" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+               <graphic>
+                  <ImageView fitWidth="25.0" preserveRatio="true">
+                     <image>
+                        <Image url="@assets/add.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </JFXButton>
+            <JFXButton fx:id="btnSearchCustomer" layoutX="307.0" layoutY="71.0" onAction="#btnLordSearchCustomer" style="-fx-background-radius: 10px;" styleClass="sideButton" stylesheets="@home.css" text="Search Customer" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+               <graphic>
+                  <ImageView fitHeight="200.0" fitWidth="25.0" preserveRatio="true">
+                     <image>
+                        <Image url="@assets/search.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </JFXButton>
+            <ScrollPane hbarPolicy="NEVER" layoutX="68.0" layoutY="163.0" prefHeight="622.0" prefWidth="1127.0">
+              <content>
+                <AnchorPane fx:id="customerPane" focusTraversable="true" minHeight="0.0" minWidth="0.0" prefHeight="618.0" prefWidth="1126.0">
+                     <children>
+                        <TableView fx:id="tableCustomerDetails" layoutX="-1.0" layoutY="-2.0" onSort="#showCustomerDetails" prefHeight="622.0" prefWidth="1127.0">
+                          <columns>
+                            <TableColumn fx:id="col1CustomerID" prefWidth="282.0" text="Customer ID" />
+                            <TableColumn fx:id="col2CustomerName" prefWidth="282.0" text="Customer Nmae" />
+                              <TableColumn fx:id="col3TeleNumber" prefWidth="282.0" text="Telephone Number" />
+                              <TableColumn fx:id="col4CustomerAddress" prefWidth="282.0" text="Customer Address" />
+                          </columns>
+                        </TableView>
+                     </children></AnchorPane>
+              </content>
+            </ScrollPane>
+         </children>
+      </Pane>
+   </children>
 </AnchorPane>
