@@ -18,7 +18,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-public class userProfileController{
+public class UserProfileController{
 
     @FXML
     private Label UPLUserName;
@@ -71,18 +71,38 @@ public class userProfileController{
                 if (rs.getString(2).equals(oldpass)) {
                     if (newpass.equals(confirmpass)) {
                         st.executeUpdate("update user_info set username='" + newUserName + "',password='" + newpass + "' where username='" + username + "' ");
-                        JOptionPane.showMessageDialog(null, "Successfully uptade");
-                        this.stage = (Stage)this.EditProfilePane.getScene().getWindow();
-                        this.stage.close();
+//                        JOptionPane.showMessageDialog(null, "Successfully uptade");
+                        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                        alert.setTitle("Information Dialog");
+                        alert.setHeaderText("Successfully uptade");
+                        alert.setContentText("");
+                        alert.showAndWait();
+                        if (alert.showAndWait().get() == ButtonType.OK) {
+                            this.stage = (Stage)this.EditProfilePane.getScene().getWindow();
+                            this.stage.close();
+                        }
+
                     } else {
-                        JOptionPane.showMessageDialog(null, "incorrect confirm password");
+//                        JOptionPane.showMessageDialog(null, "incorrect confirm password");
+                        Alert alert = new Alert(Alert.AlertType.WARNING);
+                        alert.setTitle("Warning!");
+                        alert.setHeaderText("incorrect confirm password");
+                        alert.setContentText("Please Re-enter .");
                     }
                 } else {
-                    JOptionPane.showMessageDialog(null, "incorrect password");
+//                  JOptionPane.showMessageDialog(null, "incorrect password");
+                    Alert alert = new Alert(Alert.AlertType.WARNING);
+                    alert.setTitle("Warning!");
+                    alert.setHeaderText("incorrect password");
+                    alert.setContentText("Please Re-enter .");
                 }
             }
         }catch (Exception e){
-            JOptionPane.showMessageDialog(null, "This user name already exist");
+//            JOptionPane.showMessageDialog(null, "This user name is already exist");
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Warning!");
+            alert.setHeaderText("This user name is already exist");
+            alert.setContentText("Please Re-enter .");
         }
     }
 
@@ -95,5 +115,10 @@ public class userProfileController{
     public void minimizeEditProfile(MouseEvent mouseEvent) {
         stage = (Stage)this.EditProfilePane.getScene().getWindow();
         stage.setIconified(true);
+    }
+
+    public void closeEditProfile1(ActionEvent actionEvent) {
+        this.stage = (Stage)this.EditProfilePane.getScene().getWindow();
+        this.stage.close();
     }
 }

@@ -256,10 +256,10 @@ public class HomeController {
     public void btnLoadUserProfile(ActionEvent actionEvent) throws IOException, SQLException, ClassNotFoundException {
         Stage stage =new Stage();
 
-        FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("userProfile.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("UserProfile.fxml"));
         Parent root = fxmlLoader.load();
         stage.setScene(new Scene(root));
-        userProfileController userprofilecontrol = fxmlLoader.getController();
+        UserProfileController userprofilecontrol = fxmlLoader.getController();
         userprofilecontrol.setUserDetails(userName);
         stage.initStyle(StageStyle.UNDECORATED);
         Dimension dimension = Toolkit.getDefaultToolkit().getScreenSize();

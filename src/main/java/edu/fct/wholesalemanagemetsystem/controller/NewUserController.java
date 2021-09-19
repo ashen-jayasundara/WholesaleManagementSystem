@@ -6,9 +6,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Scene;
-import javafx.scene.control.Label;
-import javafx.scene.control.PasswordField;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
@@ -46,15 +44,29 @@ public class NewUserController {
                 Connection con = DBConnection.getInstance().getConnection();
                 Statement st = con.createStatement();
                 st.executeUpdate("insert into user_info values('"+UserName+"','"+newpass+"')");
-                JOptionPane.showMessageDialog(null, "Successfully uptade");
+//                JOptionPane.showMessageDialog(null, "Successfully uptade");
+                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setTitle("Information Dialog");
+                alert.setHeaderText("Successfully uptade");
+                alert.setContentText("");
+                if (alert.showAndWait().get() == ButtonType.OK) {
+                    this.stage = (Stage)this.NewUserPane.getScene().getWindow();
+                    this.stage.close();
+                }
 
-                this.stage = (Stage)this.NewUserPane.getScene().getWindow();
-                this.stage.close();
             } else {
-                JOptionPane.showMessageDialog(null, "incorrect confirm password");
+//                JOptionPane.showMessageDialog(null, "incorrect confirm password");
+                Alert alert = new Alert(Alert.AlertType.WARNING);
+                alert.setTitle("Warning!");
+                alert.setHeaderText("incorrect confirm password");
+                alert.setContentText("Please Re-enter .");
             }
         }catch (Exception e){
-            JOptionPane.showMessageDialog(null, "This user name already exist");
+//            JOptionPane.showMessageDialog(null, "This user name already exist");
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Warning!");
+            alert.setHeaderText("incorrect password");
+            alert.setContentText("Please Re-enter .");
         }
     }
 
