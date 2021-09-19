@@ -13,4 +13,9 @@
       <module name="WholesaleManagemetSystem" target="11" />
     </bytecodeTargetLevel>
   </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="WholesaleManagemetSystem" options="--add-exports java.desktop/com.sun.imageio.plugins.bmp=edu.fct.wholesalemanagemetsystem" />
+    </option>
+  </component>
 </project>

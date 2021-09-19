@@ -2,11 +2,13 @@ package edu.fct.wholesalemanagemetsystem.controller;
 
 import com.jfoenix.controls.JFXButton;
 
+import com.sun.imageio.plugins.bmp.BMPMetadata;
 import edu.fct.wholesalemanagemetsystem.Main;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
@@ -19,6 +21,7 @@ import javafx.stage.StageStyle;
 
 import java.awt.*;
 import java.io.IOException;
+import java.sql.SQLException;
 
 public class HomeController {
 
@@ -62,11 +65,15 @@ public class HomeController {
     private JFXButton btnClose;
 
     @FXML
+    private Pane userEditPane;
+
+    @FXML
     private JFXButton btnMinimize;
     private Stage stage;
     private Scene scene;
 
     public int  num;
+    String userName;
 
 
     @FXML
@@ -217,6 +224,8 @@ public class HomeController {
 
     public void displayUserName(String username) {
         lUsername.setText(username);
+        userName=username;
+        userEditPane.setVisible(false);
     }
 
     public void btnLoadDashboard1() throws IOException {
@@ -235,6 +244,44 @@ public class HomeController {
         jfxButton2.setDefaultButton(true);
     }
 
+    public void OMCLoadUserPane(MouseEvent mouseEvent) {
+            userEditPane.setVisible(true);
+
+    }
+
+    public void OMCLoadUserPane1(MouseEvent mouseEvent) {
+        userEditPane.setVisible(false);
+    }
+
+    public void btnLoadUserProfile(ActionEvent actionEvent) throws IOException, SQLException, ClassNotFoundException {
+        Stage stage =new Stage();
+
+        FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("userProfile.fxml"));
+        Parent root = fxmlLoader.load();
+        stage.setScene(new Scene(root));
+        userProfileController userprofilecontrol = fxmlLoader.getController();
+        userprofilecontrol.setUserDetails(userName);
+        stage.initStyle(StageStyle.UNDECORATED);
+        Dimension dimension = Toolkit.getDefaultToolkit().getScreenSize();
+         stage.showAndWait();
+
+
+        stage.setX((dimension.width/2) - (stage.getWidth()/2));
+        stage.setY((dimension.height/2) - (stage.getHeight()/2));
+    }
+
+    public void btnLoadNewUser(ActionEvent actionEvent) throws IOException {
+        Stage stage =new Stage();
+        FXMLLoader fxmlLoader = new FXMLLoader();
+        Pane root = fxmlLoader.load(Main.class.getResource("newUser.fxml"));
+        stage.setScene(new Scene(root));
+        stage.initStyle(StageStyle.UNDECORATED);
+        Dimension dimension = Toolkit.getDefaultToolkit().getScreenSize();
+        stage.showAndWait();
+
+        stage.setX((dimension.width/2) - (stage.getWidth()/2));
+        stage.setY((dimension.height/2) - (stage.getHeight()/2));
+    }
 }
 
 //test change 2
