@@ -54,19 +54,21 @@ public class NewUserController {
                     this.stage.close();
                 }
 
-            } else {
+            }else{
 //                JOptionPane.showMessageDialog(null, "incorrect confirm password");
-                Alert alert = new Alert(Alert.AlertType.WARNING);
+                Alert alert = new Alert(Alert.AlertType.INFORMATION);
                 alert.setTitle("Warning!");
                 alert.setHeaderText("incorrect confirm password");
                 alert.setContentText("Please Re-enter .");
+                alert.showAndWait();
             }
         }catch (Exception e){
 //            JOptionPane.showMessageDialog(null, "This user name already exist");
-            Alert alert = new Alert(Alert.AlertType.WARNING);
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setTitle("Warning!");
             alert.setHeaderText("incorrect password");
             alert.setContentText("Please Re-enter .");
+            alert.showAndWait();
         }
     }
 

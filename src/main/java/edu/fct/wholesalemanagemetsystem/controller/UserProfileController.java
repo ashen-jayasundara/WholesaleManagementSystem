@@ -58,7 +58,7 @@ public class UserProfileController{
         }
     }
 
-    public void UPBEditProfile(ActionEvent actionEvent) {
+    public void UPBEditProfile(ActionEvent actionEvent) throws SQLException, ClassNotFoundException {
         String newUserName = UPTFUserName.getText();
         String oldpass = UPTFOldPassword.getText();
         String newpass = UPTFNewPassword.getText();
@@ -76,25 +76,26 @@ public class UserProfileController{
                         alert.setTitle("Information Dialog");
                         alert.setHeaderText("Successfully uptade");
                         alert.setContentText("");
-                        alert.showAndWait();
                         if (alert.showAndWait().get() == ButtonType.OK) {
                             this.stage = (Stage)this.EditProfilePane.getScene().getWindow();
                             this.stage.close();
                         }
 
-                    } else {
+                    }else{
 //                        JOptionPane.showMessageDialog(null, "incorrect confirm password");
-                        Alert alert = new Alert(Alert.AlertType.WARNING);
+                        Alert alert = new Alert(Alert.AlertType.INFORMATION);
                         alert.setTitle("Warning!");
                         alert.setHeaderText("incorrect confirm password");
                         alert.setContentText("Please Re-enter .");
+                        alert.showAndWait();
                     }
                 } else {
 //                  JOptionPane.showMessageDialog(null, "incorrect password");
-                    Alert alert = new Alert(Alert.AlertType.WARNING);
+                    Alert alert = new Alert(Alert.AlertType.INFORMATION);
                     alert.setTitle("Warning!");
                     alert.setHeaderText("incorrect password");
                     alert.setContentText("Please Re-enter .");
+                    alert.showAndWait();
                 }
             }
         }catch (Exception e){
@@ -103,6 +104,7 @@ public class UserProfileController{
             alert.setTitle("Warning!");
             alert.setHeaderText("This user name is already exist");
             alert.setContentText("Please Re-enter .");
+            alert.showAndWait();
         }
     }
 
