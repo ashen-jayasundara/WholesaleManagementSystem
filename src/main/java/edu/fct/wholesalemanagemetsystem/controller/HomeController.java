@@ -17,6 +17,7 @@ import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
+import javax.imageio.IIOParam;
 import java.awt.*;
 import java.io.IOException;
 
@@ -112,9 +113,6 @@ public class HomeController {
         btnOrders.setDefaultButton(false);
         btnPurchases.setDefaultButton(false);
         btnAccount.setDefaultButton(false);
-        //num = 0;
-        //changeSelectedButton();
-
     }
 
     @FXML
@@ -144,6 +142,7 @@ public class HomeController {
         btnPurchases.setDefaultButton(false);
         btnAccount.setDefaultButton(false);
     }
+
 
     @FXML
     void btnLordAccount(ActionEvent event) throws IOException {
@@ -237,4 +236,5 @@ public class HomeController {
 
 }
 
-//test change 2
+//ujyt
+//olijok
