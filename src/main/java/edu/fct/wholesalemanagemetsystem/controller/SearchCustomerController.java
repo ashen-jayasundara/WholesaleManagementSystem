@@ -1,18 +1,29 @@
 package edu.fct.wholesalemanagemetsystem.controller;
 
+import edu.fct.wholesalemanagemetsystem.Main;
 import edu.fct.wholesalemanagemetsystem.db.DBConnection;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.Pane;
 
+import java.io.IOException;
+import java.net.URL;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ResourceBundle;
 
-public class SearchCustomerController {
+public class SearchCustomerController implements Initializable {
+
+    @FXML
+    private AnchorPane customerPane;
 
     @FXML
     private TextField tfCustomerID;
@@ -63,8 +74,9 @@ public class SearchCustomerController {
     }
 
     @FXML
-    void loadBack(MouseEvent event) {
-
+    void loadBack(MouseEvent event) throws IOException {
+        Pane newLoadedPane =  FXMLLoader.load(Main.class.getResource("viewCustomer.fxml"));
+        customerPane.getChildren().add(newLoadedPane);
     }
 
     @FXML
@@ -146,4 +158,8 @@ public class SearchCustomerController {
         }
     }
 
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+
+    }
 }

@@ -3,8 +3,6 @@ package edu.fct.wholesalemanagemetsystem.controller;
 import com.jfoenix.controls.JFXButton;
 import edu.fct.wholesalemanagemetsystem.Main;
 import edu.fct.wholesalemanagemetsystem.db.DBConnection;
-import javafx.beans.property.SimpleStringProperty;
-import javafx.beans.property.StringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -106,8 +104,7 @@ public class CustomerController implements Initializable {
 //        tableCustomerDetails.setItems(data);
     }
 
-    @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
+    public void loadCustomer(){
         try {
             Connection con = DBConnection.getInstance().getConnection();
             Statement st = con.createStatement();
@@ -123,6 +120,18 @@ public class CustomerController implements Initializable {
         col3TeleNumber.setCellValueFactory(new PropertyValueFactory<>("telephone_no"));
         col4CustomerAddress.setCellValueFactory(new PropertyValueFactory<>("customer_address"));
         tableCustomerDetails.setItems(customerdatalist);
+    }
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        Pane newLoadedPane = null;
+        try {
+            newLoadedPane = FXMLLoader.load(Main.class.getResource("viewCustomer.fxml"));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        customerPane.getChildren().add(newLoadedPane);
+
+        loadCustomer();
     }
 
 }

@@ -14,13 +14,12 @@ import javafx.scene.layout.Pane;
 
 import java.io.IOException;
 import java.sql.Connection;
-import java.sql.ResultSet;
 import java.sql.Statement;
 
 public class NewCustomerController {
 
     @FXML
-    private AnchorPane newCustomerPane;
+    private AnchorPane customerPane;
 
     @FXML
     private TextField tfCustomerID;
@@ -77,8 +76,8 @@ public class NewCustomerController {
 
     @FXML
     void loadBack(MouseEvent event) throws IOException {
-//        Pane newLoadedPane =  FXMLLoader.load(Main.class.getResource("customer.fxml"));
-//        customerPane.getChildren().add(newLoadedPane);
+        Pane newLoadedPane =  FXMLLoader.load(Main.class.getResource("viewCustomer.fxml"));
+        customerPane.getChildren().add(newLoadedPane);
 
     }
 
