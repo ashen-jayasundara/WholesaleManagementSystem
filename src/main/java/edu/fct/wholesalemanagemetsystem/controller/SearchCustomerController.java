@@ -1,14 +1,149 @@
 package edu.fct.wholesalemanagemetsystem.controller;
 
-
+import edu.fct.wholesalemanagemetsystem.db.DBConnection;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
+import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
+
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 
 public class SearchCustomerController {
 
     @FXML
+    private TextField tfCustomerID;
+
+    @FXML
+    private TextField tfCustomerName;
+
+    @FXML
+    private TextField tfTeleNo;
+
+    @FXML
+    private TextField tfCustomerAddress;
+
+    @FXML
+    private TextField tfSearchID;
+
+    @FXML
+    private TextField tfSearchTele;
+
+    @FXML
+    void deleteCustomer(ActionEvent event) throws SQLException, ClassNotFoundException {
+        String id = tfCustomerID.getText();
+        try {
+            Connection con = DBConnection.getInstance().getConnection();
+            Statement st = con.createStatement();
+            st.executeUpdate("delete from customer where customer_id='" + id + "'");
+
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Information");
+            alert.setHeaderText(null);
+            alert.setContentText("Successfully Deleted!");
+            alert.showAndWait();
+
+            tfCustomerID.clear();
+            tfCustomerName.clear();
+            tfTeleNo.clear();
+            tfCustomerAddress.clear();
+            tfSearchTele.clear();
+            tfSearchID.clear();
+        }
+        catch (Exception e) {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Error");
+            alert.setHeaderText("");
+            alert.setContentText("Delete Unsuccessful!");
+            alert.showAndWait();
+        }
+    }
+
+    @FXML
     void loadBack(MouseEvent event) {
 
+    }
+
+    @FXML
+    void resetFields(ActionEvent event) {
+        tfCustomerName.clear();
+        tfTeleNo.clear();
+        tfCustomerAddress.clear();
+    }
+
+    @FXML
+    void searchCustomer(ActionEvent event) throws SQLException, ClassNotFoundException {
+        String searchID = tfSearchID.getText();
+        String searchTele = tfSearchTele.getText();
+
+//        String id = tfCustomerID.getText();
+//        String name = tfCustomerName.getText();
+//        int tele = tfTeleNo.getText();
+//        String address = tfCustomerAddress.getText();
+
+        try {
+            Connection con = DBConnection.getInstance().getConnection();
+            Statement st = con.createStatement();
+            ResultSet rs = st.executeQuery("select * from customer where customer_id='"+searchID+"' or telephone_no='"+searchTele+"'");
+            if(rs.next()) {
+
+                tfCustomerID.setText(rs.getString(1));
+                tfCustomerName.setText(rs.getString(2));
+                tfTeleNo.setText(rs.getString(3));
+                tfCustomerAddress.setText(rs.getString(4));
+            }
+            else {
+                Alert alert = new Alert(Alert.AlertType.WARNING);
+                alert.setTitle("Warning");
+                alert.setHeaderText("");
+                alert.setContentText("Not Found!");
+
+                alert.showAndWait();
+            }
+        }
+        catch (Exception e) {
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Warning");
+            alert.setHeaderText("");
+            alert.setContentText("Not Found!");
+
+            alert.showAndWait();
+        }
+    }
+
+    @FXML
+    void updateCustomer(ActionEvent event) throws SQLException, ClassNotFoundException {
+        String id = tfCustomerID.getText();
+        String name = tfCustomerName.getText();
+        String tele = tfTeleNo.getText();
+        String address = tfCustomerAddress.getText();
+        try {
+            Connection con = DBConnection.getInstance().getConnection();
+            Statement st = con.createStatement();
+            st.executeUpdate("update customer set customer_name='" + name + "', telephone_no='" + tele + "', customer_address='" + address + "' where customer_id='" + id + "'");
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Information");
+            alert.setHeaderText(null);
+            alert.setContentText("Successfully Updated!");
+            alert.showAndWait();
+
+            tfCustomerID.clear();
+            tfCustomerName.clear();
+            tfTeleNo.clear();
+            tfCustomerAddress.clear();
+            tfSearchTele.clear();
+            tfSearchID.clear();
+        }
+        catch (Exception e) {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Error");
+            alert.setHeaderText("");
+            alert.setContentText("Update Unsuccessful!");
+            alert.showAndWait();
+        }
     }
 
 }

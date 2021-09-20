@@ -11,7 +11,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="622.0" prefWidth="1127.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.fct.wholesalemanagemetsystem.controller.NewCustomerController">
+<AnchorPane fx:id="newCustomerPane" prefHeight="622.0" prefWidth="1127.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.fct.wholesalemanagemetsystem.controller.NewCustomerController">
    <children>
       <Pane prefHeight="622.0" prefWidth="1127.0">
          <children>
@@ -41,16 +41,28 @@
                </font>
             </Text>
             <Separator layoutX="264.0" layoutY="89.0" prefHeight="0.0" prefWidth="599.0" />
-            <TextField layoutX="551.0" layoutY="181.0" prefHeight="25.0" prefWidth="328.0" />
-            <TextField layoutX="551.0" layoutY="232.0" prefHeight="25.0" prefWidth="328.0" />
-            <TextField layoutX="551.0" layoutY="285.0" prefHeight="25.0" prefWidth="328.0" />
-            <TextField alignment="TOP_LEFT" layoutX="551.0" layoutY="341.0" prefHeight="50.0" prefWidth="328.0" />
-            <JFXButton layoutX="436.0" layoutY="468.0" onAction="#addNewCustomer" prefHeight="40.0" prefWidth="94.0" style="-fx-background-color: #003366;" styleClass="sideButton" stylesheets="@home.css" text="Add" textFill="WHITE">
+            <TextField fx:id="tfCustomerID" layoutX="551.0" layoutY="179.0" prefHeight="25.0" prefWidth="328.0">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font></TextField>
+            <TextField fx:id="tfCustomerName" layoutX="551.0" layoutY="230.0" prefHeight="25.0" prefWidth="328.0">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font></TextField>
+            <TextField fx:id="tfTeleNo" layoutX="551.0" layoutY="283.0" prefHeight="25.0" prefWidth="328.0">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font></TextField>
+            <TextField fx:id="tfCustomerAddress" alignment="TOP_LEFT" layoutX="551.0" layoutY="342.0" onAction="#addNewCustomer" prefHeight="50.0" prefWidth="328.0">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font></TextField>
+            <JFXButton layoutX="453.0" layoutY="470.0" onAction="#addNewCustomer" prefHeight="40.0" prefWidth="94.0" style="-fx-background-color: #003366;" styleClass="sideButton" stylesheets="@home.css" text="Add" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="18.0" />
                </font>
             </JFXButton>
-            <JFXButton layoutX="572.0" layoutY="468.0" onAction="#resetFields" prefHeight="40.0" prefWidth="94.0" style="-fx-background-color: #003366;" styleClass="sideButton" stylesheets="@home.css" text="Reset" textFill="WHITE">
+            <JFXButton layoutX="580.0" layoutY="470.0" onAction="#resetFields" prefHeight="40.0" prefWidth="94.0" style="-fx-background-color: #003366;" styleClass="sideButton" stylesheets="@home.css" text="Reset" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="18.0" />
                </font>
