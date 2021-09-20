@@ -14,7 +14,7 @@
    <children>
       <Pane focusTraversable="true" prefHeight="815.0" prefWidth="1267.0">
          <children>
-            <JFXButton fx:id="btnNewCustomer" layoutX="68.0" layoutY="71.0" onAction="#btnLoadNewCustomer" style="-fx-background-radius: 10px;" styleClass="sideButton" stylesheets="@home.css" text="New Customer" textFill="WHITE">
+            <JFXButton fx:id="btnNewCustomer" layoutX="68.0" layoutY="41.0" onAction="#btnLoadNewCustomer" style="-fx-background-radius: 10px;" styleClass="sideButton" stylesheets="@home.css" text="New Customer" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="18.0" />
                </font>
@@ -26,7 +26,7 @@
                   </ImageView>
                </graphic>
             </JFXButton>
-            <JFXButton fx:id="btnSearchCustomer" layoutX="307.0" layoutY="71.0" onAction="#btnLordSearchCustomer" style="-fx-background-radius: 10px;" styleClass="sideButton" stylesheets="@home.css" text="Search Customer" textFill="WHITE">
+            <JFXButton fx:id="btnSearchCustomer" layoutX="305.0" layoutY="41.0" onAction="#btnLordSearchCustomer" style="-fx-background-radius: 10px;" styleClass="sideButton" stylesheets="@home.css" text="Search Customer" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="18.0" />
                </font>
@@ -38,7 +38,7 @@
                   </ImageView>
                </graphic>
             </JFXButton>
-            <ScrollPane hbarPolicy="NEVER" layoutX="68.0" layoutY="163.0" prefHeight="622.0" prefWidth="1127.0">
+            <ScrollPane hbarPolicy="NEVER" layoutX="68.0" layoutY="127.0" prefHeight="622.0" prefWidth="1127.0">
               <content>
                 <AnchorPane fx:id="customerPane" focusTraversable="true" minHeight="0.0" minWidth="0.0" prefHeight="618.0" prefWidth="1126.0">
                      <children>

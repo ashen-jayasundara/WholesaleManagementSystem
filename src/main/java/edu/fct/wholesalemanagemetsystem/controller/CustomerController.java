@@ -113,7 +113,7 @@ public class CustomerController implements Initializable {
             Statement st = con.createStatement();
             ResultSet rs = st.executeQuery("select * from customer");
             while (rs.next()){
-                customerdatalist.add(new CustomerTableModel(rs.getString("customer_id"),rs.getString("customer_id"),rs.getString("telephone_no"),rs.getString("customer_address")));
+                customerdatalist.add(new CustomerTableModel(rs.getString("customer_id"),rs.getString("customer_name"),rs.getString("telephone_no"),rs.getString("customer_address")));
             }
         } catch (SQLException | ClassNotFoundException e) {
             e.printStackTrace();
