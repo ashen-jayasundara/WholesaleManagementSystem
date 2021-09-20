@@ -50,7 +50,8 @@
                               <TableColumn fx:id="col4CustomerAddress" prefWidth="282.0" text="Customer Address" />
                           </columns>
                         </TableView>
-                     </children></AnchorPane>
+                     </children>
+                  </AnchorPane>
               </content>
             </ScrollPane>
          </children>

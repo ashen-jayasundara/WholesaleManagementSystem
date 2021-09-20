@@ -10,6 +10,7 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -17,12 +18,14 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 
 import java.io.IOException;
+import java.net.URL;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ResourceBundle;
 
-public class CustomerController {
+public class CustomerController implements Initializable {
 
     @FXML
     private JFXButton btnNewCustomer;
@@ -34,21 +37,22 @@ public class CustomerController {
     private AnchorPane customerPane;
 
     @FXML
-    private TableView<Object> tableCustomerDetails;
+    private TableView<CustomerTableModel> tableCustomerDetails;
 
     @FXML
-    private TableColumn<?, ?> col1CustomerID;
+    private TableColumn<CustomerTableModel, String> col1CustomerID;
 
     @FXML
-    private TableColumn<?, ?> col2CustomerName;
+    private TableColumn<CustomerTableModel, String> col2CustomerName;
 
     @FXML
-    private TableColumn<?, ?> col3TeleNumber;
+    private TableColumn<CustomerTableModel, String> col3TeleNumber;
 
     @FXML
-    private TableColumn<?, ?> col4CustomerAddress;
-    private ObservableList<Object> data;
+    private TableColumn<CustomerTableModel, String> col4CustomerAddress;
+//    private ObservableList<Object> data;
 
+    ObservableList<CustomerTableModel> customerdatalist = FXCollections.observableArrayList();
 
     public void customerDetails() throws IOException {
         Pane newLoadedPane =  FXMLLoader.load(Main.class.getResource("customerDetails.fxml"));
@@ -81,88 +85,45 @@ public class CustomerController {
 
     @FXML
     void showCustomerDetails(ActionEvent event) throws SQLException, ClassNotFoundException {
+//
+//        try {
+//            Connection con = DBConnection.getInstance().getConnection();
+//            data=FXCollections.observableArrayList();
+//            Statement st = con.createStatement();
+//            ResultSet rs = st.executeQuery("select * from customer");
+//            while (rs.next()) {
+//                data.add(new ShowData(rs.getString(1), rs.getString(2), rs.getString(3), rs.getString(4)));
+//            }
+//        }
+//        catch (SQLException ex) {
+//            System.err.println("Error"+ex);
+//        }
+//        col1CustomerID.setCellValueFactory(new PropertyValueFactory("customer_id"));
+//        col2CustomerName.setCellValueFactory(new PropertyValueFactory("customer_name"));
+//        col3TeleNumber.setCellValueFactory(new PropertyValueFactory("telephone_no"));
+//        col4CustomerAddress.setCellValueFactory(new PropertyValueFactory("customer_address"));
+//        tableCustomerDetails.setItems(null);
+//        tableCustomerDetails.setItems(data);
+    }
 
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
         try {
             Connection con = DBConnection.getInstance().getConnection();
-            data=FXCollections.observableArrayList();
             Statement st = con.createStatement();
             ResultSet rs = st.executeQuery("select * from customer");
-            while (rs.next()) {
-                data.add(new ShowData(rs.getString(1), rs.getString(2), rs.getString(3), rs.getString(4)));
+            while (rs.next()){
+                customerdatalist.add(new CustomerTableModel(rs.getString("customer_id"),rs.getString("customer_id"),rs.getString("telephone_no"),rs.getString("customer_address")));
             }
+        } catch (SQLException | ClassNotFoundException e) {
+            e.printStackTrace();
         }
-        catch (SQLException ex) {
-            System.err.println("Error"+ex);
-        }
-        col1CustomerID.setCellValueFactory(new PropertyValueFactory("customer_id"));
-        col2CustomerName.setCellValueFactory(new PropertyValueFactory("customer_name"));
-        col3TeleNumber.setCellValueFactory(new PropertyValueFactory("telephone_no"));
-        col4CustomerAddress.setCellValueFactory(new PropertyValueFactory("customer_address"));
-        tableCustomerDetails.setItems(null);
-        tableCustomerDetails.setItems(data);
+        col1CustomerID.setCellValueFactory(new PropertyValueFactory<>("customer_id"));
+        col2CustomerName.setCellValueFactory(new PropertyValueFactory<>("customer_name"));
+        col3TeleNumber.setCellValueFactory(new PropertyValueFactory<>("telephone_no"));
+        col4CustomerAddress.setCellValueFactory(new PropertyValueFactory<>("customer_address"));
+        tableCustomerDetails.setItems(customerdatalist);
     }
 
 }
 
-    class ShowData {
-
-        private final StringProperty customer_id;
-        private final StringProperty customer_name;
-        private final StringProperty telephone_no;
-        private final StringProperty customer_address;
-
-        public ShowData(String customer_id, String customer_name, String telephone_no, String customer_address) {
-            this.customer_id = new SimpleStringProperty(customer_id);
-            this.customer_name = new SimpleStringProperty(customer_name);
-            this.telephone_no = new SimpleStringProperty(telephone_no);
-            this.customer_address = new SimpleStringProperty(customer_address);
-        }
-
-        public String getCustomer_id() {
-            return customer_id.get();
-        }
-
-        public String getCustomer_name() {
-            return customer_name.get();
-        }
-
-        public String getTelephone_no() {
-            return telephone_no.get();
-        }
-
-        public String getCustomer_address() {
-            return customer_address.get();
-        }
-
-        public void setCustomer_id(String value) {
-            customer_id.setValue(value);
-        }
-
-        public void setCustomer_name(String value) {
-            customer_name.setValue(value);
-        }
-
-        public void setTelephone_no(String value) {
-            telephone_no.setValue(value);
-        }
-
-        public void setCustomer_address(String value) {
-            customer_address.setValue(value);
-        }
-
-        public StringProperty customer_addressProperty() {
-            return customer_address;
-        }
-
-        public StringProperty customer_idProperty() {
-            return customer_id;
-        }
-
-        public StringProperty customer_nameProperty() {
-            return customer_name;
-        }
-
-        public StringProperty telephone_noProperty() {
-            return telephone_no;
-        }
-    }
