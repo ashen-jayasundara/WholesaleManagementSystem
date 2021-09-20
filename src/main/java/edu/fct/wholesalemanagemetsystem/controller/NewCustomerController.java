@@ -14,14 +14,17 @@ import java.io.IOException;
 public class NewCustomerController {
 
     @FXML
+    private AnchorPane customerPane;
+
+    @FXML
     void addNewCustomer(ActionEvent event) {
 
     }
 
     @FXML
     void loadBack(MouseEvent event) throws IOException {
-//        Pane newLoadedPane =  FXMLLoader.load(Main.class.getResource("customer.fxml"));
-//        customerPane.getChildren().add(newLoadedPane);
+        Pane newLoadedPane =  FXMLLoader.load(Main.class.getResource("customerView.fxml"));
+        customerPane.getChildren().add(newLoadedPane);
 
     }
 

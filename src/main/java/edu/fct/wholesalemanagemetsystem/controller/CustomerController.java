@@ -3,8 +3,6 @@ package edu.fct.wholesalemanagemetsystem.controller;
 import com.jfoenix.controls.JFXButton;
 import edu.fct.wholesalemanagemetsystem.Main;
 import edu.fct.wholesalemanagemetsystem.db.DBConnection;
-import javafx.beans.property.SimpleStringProperty;
-import javafx.beans.property.StringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -54,6 +52,8 @@ public class CustomerController implements Initializable {
 
     ObservableList<CustomerTableModel> customerdatalist = FXCollections.observableArrayList();
 
+    //public static void loadCustomer();
+
     public void customerDetails() throws IOException {
         Pane newLoadedPane =  FXMLLoader.load(Main.class.getResource("customerDetails.fxml"));
         customerPane.getChildren().add(newLoadedPane);
@@ -83,6 +83,7 @@ public class CustomerController implements Initializable {
         searchCustomer();
     }
 
+
     @FXML
     void showCustomerDetails(ActionEvent event) throws SQLException, ClassNotFoundException {
 //
@@ -106,8 +107,8 @@ public class CustomerController implements Initializable {
 //        tableCustomerDetails.setItems(data);
     }
 
-    @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
+    public void loadCustomer(){
+
         try {
             Connection con = DBConnection.getInstance().getConnection();
             Statement st = con.createStatement();
@@ -123,6 +124,21 @@ public class CustomerController implements Initializable {
         col3TeleNumber.setCellValueFactory(new PropertyValueFactory<>("telephone_no"));
         col4CustomerAddress.setCellValueFactory(new PropertyValueFactory<>("customer_address"));
         tableCustomerDetails.setItems(customerdatalist);
+
+    }
+
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        Pane newLoadedPane = null;
+        try {
+            newLoadedPane = FXMLLoader.load(Main.class.getResource("customerView.fxml"));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        customerPane.getChildren().add(newLoadedPane);
+
+        loadCustomer();
+
     }
 
 }
