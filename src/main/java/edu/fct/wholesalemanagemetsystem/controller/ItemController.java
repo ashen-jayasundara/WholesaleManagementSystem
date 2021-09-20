@@ -1,4 +1,6 @@
 package edu.fct.wholesalemanagemetsystem.controller;
 
-public class ItemController {
+
+public class ItemController  {
+
 }
