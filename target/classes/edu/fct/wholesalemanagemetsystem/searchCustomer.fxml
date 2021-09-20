@@ -74,7 +74,7 @@
                   <Font name="System Bold" size="18.0" />
                </font>
             </JFXButton>
-            <ImageView accessibleRole="BUTTON" fitWidth="35.0" onMouseClicked="#loadBack" preserveRatio="true">
+            <ImageView accessibleRole="BUTTON" fitHeight="40.0" fitWidth="36.0" layoutX="14.0" layoutY="12.0" onMouseClicked="#loadBack" preserveRatio="true">
                <image>
                   <Image url="@assets/back.png" />
                </image>
