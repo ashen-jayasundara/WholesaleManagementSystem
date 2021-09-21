@@ -11,53 +11,58 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane fx:id="customerPane" prefHeight="622.0" prefWidth="1127.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.fct.wholesalemanagemetsystem.controller.SearchCustomerController">
+
+<AnchorPane fx:id="supplierPane" prefHeight="622.0" prefWidth="1127.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.fct.wholesalemanagemetsystem.controller.SearchSupplierController">
    <children>
       <Pane prefHeight="622.0" prefWidth="1127.0">
          <children>
-            <Label layoutX="378.0" layoutY="292.0" text="Name">
+            <Label layoutX="378.0" layoutY="240.0" text="Name">
                <font>
                   <Font name="System Bold" size="18.0" />
                </font>
             </Label>
-            <Label layoutX="323.0" layoutY="241.0" text="Customer ID">
+            <Label layoutX="323.0" layoutY="193.0" text="Customer ID">
                <font>
                   <Font name="System Bold" size="18.0" />
                </font>
             </Label>
-            <Label layoutX="266.0" layoutY="345.0" text="Telephone Number">
+            <Label layoutX="266.0" layoutY="335.0" text="Telephone Number">
                <font>
                   <Font name="System Bold" size="18.0" />
                </font>
             </Label>
-            <Label layoutX="361.0" layoutY="401.0" text="Address">
+            <Label layoutX="282.0" layoutY="428.0" text="Business Address">
                <font>
                   <Font name="System Bold" size="18.0" />
                </font>
             </Label>
-            <Text layoutX="392.0" layoutY="74.0" strokeType="OUTSIDE" strokeWidth="0.0" text="SEARCH CUSTOMER">
+            <Text layoutX="392.0" layoutY="74.0" strokeType="OUTSIDE" strokeWidth="0.0" text="SEARCH SUPPLIER">
                <font>
                   <Font name="System Bold" size="36.0" />
                </font>
             </Text>
             <Separator layoutX="264.0" layoutY="89.0" prefHeight="0.0" prefWidth="599.0" />
-            <TextField fx:id="tfCustomerID" editable="false" layoutX="550.0" layoutY="239.0" prefHeight="25.0" prefWidth="328.0" style="-fx-background-color: #EEEEEE;">
+            <TextField fx:id="tfSupplierID" editable="false" layoutX="550.0" layoutY="191.0" prefHeight="25.0" prefWidth="328.0" style="-fx-background-color: #EEEEEE;">
                <font>
                   <Font name="System Bold" size="14.0" />
-               </font></TextField>
-            <TextField fx:id="tfCustomerName" layoutX="550.0" layoutY="291.0" prefHeight="25.0" prefWidth="328.0" style="-fx-background-color: #EEEEEE;">
+               </font>
+            </TextField>
+            <TextField fx:id="tfSupplierName" layoutX="550.0" layoutY="239.0" prefHeight="25.0" prefWidth="328.0" style="-fx-background-color: #EEEEEE;">
                <font>
                   <Font name="System Bold" size="14.0" />
-               </font></TextField>
-            <TextField fx:id="tfTeleNo" layoutX="550.0" layoutY="344.0" prefHeight="25.0" prefWidth="328.0" style="-fx-background-color: #EEEEEE;">
+               </font>
+            </TextField>
+            <TextField fx:id="tfTeleNo" layoutX="550.0" layoutY="334.0" prefHeight="25.0" prefWidth="328.0" style="-fx-background-color: #EEEEEE;">
                <font>
                   <Font name="System Bold" size="14.0" />
-               </font></TextField>
-            <TextField fx:id="tfCustomerAddress" alignment="TOP_LEFT" layoutX="550.0" layoutY="403.0" prefHeight="50.0" prefWidth="328.0" style="-fx-background-color: #EEEEEE;">
+               </font>
+            </TextField>
+            <TextField fx:id="tfBAddress" alignment="TOP_LEFT" layoutX="550.0" layoutY="430.0" prefHeight="50.0" prefWidth="328.0" style="-fx-background-color: #EEEEEE;">
                <font>
                   <Font name="System Bold" size="14.0" />
-               </font></TextField>
-            <JFXButton layoutX="795.0" layoutY="123.0" onAction="#searchCustomer" prefHeight="40.0" prefWidth="105.0" style="-fx-background-color: #003366;" styleClass="sideButton" stylesheets="@home.css" text="Search" textFill="WHITE">
+               </font>
+            </TextField>
+            <JFXButton layoutX="795.0" layoutY="123.0" onAction="#searchSupplier" prefHeight="40.0" prefWidth="105.0" style="-fx-background-color: #003366;" styleClass="sideButton" stylesheets="@home.css" text="Search" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="18.0" />
                </font>
@@ -69,7 +74,7 @@
                   </ImageView>
                </graphic>
             </JFXButton>
-            <JFXButton layoutX="387.0" layoutY="527.0" onAction="#updateCustomer" prefHeight="40.0" prefWidth="94.0" style="-fx-background-color: #003366;" styleClass="sideButton" stylesheets="@home.css" text="Update" textFill="WHITE">
+            <JFXButton layoutX="387.0" layoutY="527.0" onAction="#updateSupplier" prefHeight="40.0" prefWidth="94.0" style="-fx-background-color: #003366;" styleClass="sideButton" stylesheets="@home.css" text="Update" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="18.0" />
                </font>
@@ -79,7 +84,7 @@
                   <Image url="@assets/back.png" />
                </image>
             </ImageView>
-            <JFXButton layoutX="523.0" layoutY="527.0" onAction="#deleteCustomer" prefHeight="40.0" prefWidth="94.0" style="-fx-background-color: #003366;" styleClass="sideButton" stylesheets="@home.css" text="Delete" textFill="WHITE">
+            <JFXButton layoutX="523.0" layoutY="527.0" onAction="#deleteSupplier" prefHeight="40.0" prefWidth="94.0" style="-fx-background-color: #003366;" styleClass="sideButton" stylesheets="@home.css" text="Delete" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="18.0" />
                </font>
@@ -89,12 +94,12 @@
                   <Font name="System Bold" size="18.0" />
                </font>
             </JFXButton>
-            <TextField fx:id="tfSearchID" layoutX="307.0" layoutY="128.0" onAction="#searchCustomer" prefHeight="30.0" prefWidth="187.0" promptText="Customer ID">
+            <TextField fx:id="tfSearchID" layoutX="307.0" layoutY="128.0" onAction="#searchSupplier" prefHeight="30.0" prefWidth="187.0" promptText="Supplier ID">
                <font>
                   <Font name="System Bold" size="14.0" />
                </font>
             </TextField>
-            <TextField fx:id="tfSearchTele" layoutX="558.0" layoutY="128.0" onAction="#searchCustomer" prefHeight="30.0" prefWidth="187.0" promptText="Telephone Number">
+            <TextField fx:id="tfSearchTele" layoutX="558.0" layoutY="128.0" onAction="#searchSupplier" prefHeight="30.0" prefWidth="187.0" promptText="Telephone Number">
                <font>
                   <Font name="System Bold" size="14.0" />
                </font>
@@ -109,6 +114,26 @@
                   <Font name="System Bold" size="18.0" />
                </font>
             </Label>
+            <Label layoutX="378.0" layoutY="286.0" text="Brand">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </Label>
+            <TextField fx:id="tfBrand" layoutX="550.0" layoutY="286.0" prefHeight="25.0" prefWidth="328.0" style="-fx-background-color: #EEEEEE;">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </TextField>
+            <Label layoutX="381.0" layoutY="383.0" text="Email">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </Label>
+            <TextField fx:id="tfEmail" layoutX="550.0" layoutY="381.0" prefHeight="25.0" prefWidth="328.0" style="-fx-background-color: #EEEEEE;">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </TextField>
          </children>
       </Pane>
    </children>

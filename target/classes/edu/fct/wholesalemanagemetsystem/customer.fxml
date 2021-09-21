@@ -2,8 +2,6 @@
 
 <?import com.jfoenix.controls.JFXButton?>
 <?import javafx.scene.control.ScrollPane?>
-<?import javafx.scene.control.TableColumn?>
-<?import javafx.scene.control.TableView?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -40,18 +38,7 @@
             </JFXButton>
             <ScrollPane hbarPolicy="NEVER" layoutX="68.0" layoutY="127.0" prefHeight="622.0" prefWidth="1127.0">
               <content>
-                <AnchorPane fx:id="customerPane" focusTraversable="true" minHeight="0.0" minWidth="0.0" prefHeight="618.0" prefWidth="1126.0">
-                     <children>
-                        <TableView fx:id="tableCustomerDetails" layoutX="-1.0" layoutY="-2.0" onSort="#showCustomerDetails" prefHeight="622.0" prefWidth="1127.0">
-                          <columns>
-                            <TableColumn fx:id="col1CustomerID" prefWidth="282.0" text="Customer ID" />
-                            <TableColumn fx:id="col2CustomerName" prefWidth="282.0" text="Customer Nmae" />
-                              <TableColumn fx:id="col3TeleNumber" prefWidth="282.0" text="Telephone Number" />
-                              <TableColumn fx:id="col4CustomerAddress" prefWidth="282.0" text="Customer Address" />
-                          </columns>
-                        </TableView>
-                     </children>
-                  </AnchorPane>
+                <AnchorPane fx:id="customerPane" focusTraversable="true" minHeight="0.0" minWidth="0.0" prefHeight="618.0" prefWidth="1126.0" />
               </content>
             </ScrollPane>
          </children>

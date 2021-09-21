@@ -13,7 +13,7 @@
 
 <AnchorPane fx:id="customerPane" prefHeight="622.0" prefWidth="1127.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.fct.wholesalemanagemetsystem.controller.SearchCustomerController">
    <children>
-      <Pane prefHeight="632.0" prefWidth="1137.0">
+      <Pane prefHeight="622.0" prefWidth="1127.0">
          <children>
             <Label layoutX="378.0" layoutY="292.0" text="Name">
                <font>

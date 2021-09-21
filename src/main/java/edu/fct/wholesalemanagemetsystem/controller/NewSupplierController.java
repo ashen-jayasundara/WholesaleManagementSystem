@@ -1,6 +1,5 @@
 package edu.fct.wholesalemanagemetsystem.controller;
 
-
 import edu.fct.wholesalemanagemetsystem.Main;
 import edu.fct.wholesalemanagemetsystem.db.DBConnection;
 import javafx.event.ActionEvent;
@@ -19,36 +18,43 @@ import java.sql.Connection;
 import java.sql.Statement;
 import java.util.ResourceBundle;
 
-public class NewCustomerController implements Initializable {
+public class NewSupplierController implements Initializable {
+    @FXML
+    private AnchorPane supplierPane;
 
     @FXML
-    private AnchorPane customerPane;
+    private TextField tfSupplierID;
 
     @FXML
-    private TextField tfCustomerID;
-
-    @FXML
-    private TextField tfCustomerName;
+    private TextField tfSupplierName;
 
     @FXML
     private TextField tfTeleNo;
 
     @FXML
-    private TextField tfCustomerAddress;
-
+    private TextField tfBAddress;
 
     @FXML
-    void addNewCustomer(ActionEvent event) {
-        String id = tfCustomerID.getText();
-        String name = tfCustomerName.getText();
-        String tele = tfTeleNo.getText();
-        String address = tfCustomerAddress.getText();
+    private TextField tfEmail;
+
+    @FXML
+    private TextField tfBrand;
+
+    @FXML
+    void addNewSupplier(ActionEvent event) {
+        String id=tfSupplierID.getText();
+        String name=tfSupplierName.getText();
+        String brand=tfBrand.getText();
+        String tele=tfTeleNo.getText();
+        String email=tfEmail.getText();
+        String bAddress=tfBAddress.getText();
+
         if(tele.length() == 10) {
 
             try {
                 Connection con = DBConnection.getInstance().getConnection();
                 Statement st = con.createStatement();
-                st.executeUpdate("insert into customer values ('" + id + "','" + name + "','" + tele + "','" + address + "')");
+                st.executeUpdate("insert into supplier values ('" + id + "','" + name + "','" + brand + "','" + tele + "','" + email + "','" + bAddress + "')");
 
                 Alert alert = new Alert(Alert.AlertType.INFORMATION);
                 alert.setTitle("Information");
@@ -79,24 +85,23 @@ public class NewCustomerController implements Initializable {
 
     @FXML
     void loadBack(MouseEvent event) throws IOException {
-        Pane newLoadedPane =  FXMLLoader.load(Main.class.getResource("viewCustomer.fxml"));
-        customerPane.getChildren().add(newLoadedPane);
-
+        Pane newLoadedPane =  FXMLLoader.load(Main.class.getResource("viewSupplier.fxml"));
+        supplierPane.getChildren().add(newLoadedPane);
     }
 
     public void resetTextFields() {
-        tfCustomerID.clear();
-        tfCustomerName.clear();
+        tfSupplierID.clear();
+        tfSupplierName.clear();
+        tfBrand.clear();
         tfTeleNo.clear();
-        tfCustomerAddress.clear();
+        tfEmail.clear();
+        tfBAddress.clear();
     }
 
     @FXML
     void resetFields(ActionEvent event) {
-        //newCustomerPane.setVisible(false);
         resetTextFields();
     }
-
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
