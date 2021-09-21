@@ -1,6 +1,7 @@
 package edu.fct.wholesalemanagemetsystem.controller;
 
 import edu.fct.wholesalemanagemetsystem.db.DBConnection;
+import edu.fct.wholesalemanagemetsystem.model.Supplier;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -19,27 +20,27 @@ import java.util.ResourceBundle;
 
 public class ViewSupplierController implements Initializable {
     @FXML
-    private TableView<SupplierTableModel> tableSupplierDetails;
+    private TableView<Supplier> tableSupplierDetails;
 
     @FXML
-    private TableColumn<SupplierTableModel, String> col1SupplierID;
+    private TableColumn<Supplier, String> col1SupplierID;
 
     @FXML
-    private TableColumn<SupplierTableModel, String> col2SupplierName;
+    private TableColumn<Supplier, String> col2SupplierName;
 
     @FXML
-    private TableColumn<SupplierTableModel, String> col3Brand;
+    private TableColumn<Supplier, String> col3Brand;
 
     @FXML
-    private TableColumn<SupplierTableModel, String> col4TeleNumber;
+    private TableColumn<Supplier, String> col4TeleNumber;
 
     @FXML
-    private TableColumn<SupplierTableModel, String> col5Email;
+    private TableColumn<Supplier, String> col5Email;
 
     @FXML
-    private TableColumn<SupplierTableModel, String> col6BusinessAddress;
+    private TableColumn<Supplier, String> col6BusinessAddress;
 
-    ObservableList<SupplierTableModel> supplierdatalist = FXCollections.observableArrayList();
+    ObservableList<Supplier> supplierdatalist = FXCollections.observableArrayList();
 
     @FXML
     void showSupplierDetails(ActionEvent event) {
@@ -52,7 +53,7 @@ public class ViewSupplierController implements Initializable {
             Statement st = con.createStatement();
             ResultSet rs = st.executeQuery("select * from supplier");
             while (rs.next()){
-                supplierdatalist.add(new SupplierTableModel(
+                supplierdatalist.add(new Supplier(
                         rs.getString("supplier_id"),
                         rs.getString("supplier_name"),
                         rs.getString("brand"),

@@ -29,7 +29,7 @@
                   <Font name="System Bold" size="14.0" />
                </font>
             </TextField>
-            <PasswordField fx:id="pfPassword" focusTraversable="false" layoutX="83.0" layoutY="231.0" prefHeight="45.0" prefWidth="350.0" promptText="Password" style="-fx-background-color: #EEEEEE;">
+            <PasswordField fx:id="pfPassword" focusTraversable="false" layoutX="83.0" layoutY="231.0" onAction="#logIntoSystem" prefHeight="45.0" prefWidth="350.0" promptText="Password" style="-fx-background-color: #EEEEEE;">
                <font>
                   <Font name="System Bold" size="14.0" />
                </font>

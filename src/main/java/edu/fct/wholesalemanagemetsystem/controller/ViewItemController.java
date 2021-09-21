@@ -1,6 +1,7 @@
 package edu.fct.wholesalemanagemetsystem.controller;
 
 import edu.fct.wholesalemanagemetsystem.db.DBConnection;
+import edu.fct.wholesalemanagemetsystem.model.Item;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -19,24 +20,24 @@ import java.util.ResourceBundle;
 public class ViewItemController implements Initializable {
 
     @FXML
-    private TableView<ItemTableModel> tableItemDetails;
+    private TableView<Item> tableItemDetails;
 
     @FXML
-    private TableColumn<ItemTableModel, String> col1ItemID;
+    private TableColumn<Item, String> col1ItemID;
 
     @FXML
-    private TableColumn<ItemTableModel, String> col2ItemName;
+    private TableColumn<Item, String> col2ItemName;
 
     @FXML
-    private TableColumn<ItemTableModel, String> col3Brand;
+    private TableColumn<Item, String> col3Brand;
 
     @FXML
-    private TableColumn<ItemTableModel, String> col4Qty;
+    private TableColumn<Item, String> col4Qty;
 
     @FXML
-    private TableColumn<ItemTableModel, String> col5UnitPrize;
+    private TableColumn<Item, String> col5UnitPrize;
 
-    ObservableList<ItemTableModel> itemdatalist = FXCollections.observableArrayList();
+    ObservableList<Item> itemdatalist = FXCollections.observableArrayList();
 
     public void loadItem(){
         try {
@@ -44,7 +45,7 @@ public class ViewItemController implements Initializable {
             Statement st = con.createStatement();
             ResultSet rs = st.executeQuery("select * from item");
             while (rs.next()){
-                itemdatalist.add(new ItemTableModel(
+                itemdatalist.add(new Item(
                         rs.getString("item_id"),
                         rs.getString("item_name"),
                         rs.getString("brand"),

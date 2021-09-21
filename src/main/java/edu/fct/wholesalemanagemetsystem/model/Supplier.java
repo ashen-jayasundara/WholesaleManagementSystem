@@ -1,6 +1,6 @@
-package edu.fct.wholesalemanagemetsystem.controller;
+package edu.fct.wholesalemanagemetsystem.model;
 
-public class SupplierTableModel {
+public class Supplier {
     String supplier_id;
     String supplier_name;
     String brand;
@@ -8,10 +8,10 @@ public class SupplierTableModel {
     String email;
     String business_address;
 
-    public SupplierTableModel() {
+    public Supplier() {
     }
 
-    public SupplierTableModel(String supplier_id, String supplier_name, String brand, String telephone_no, String email, String business_address) {
+    public Supplier(String supplier_id, String supplier_name, String brand, String telephone_no, String email, String business_address) {
         this.supplier_id = supplier_id;
         this.supplier_name = supplier_name;
         this.brand = brand;

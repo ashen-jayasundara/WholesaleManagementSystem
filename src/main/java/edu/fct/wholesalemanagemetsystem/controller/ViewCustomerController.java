@@ -1,6 +1,7 @@
 package edu.fct.wholesalemanagemetsystem.controller;
 
 import edu.fct.wholesalemanagemetsystem.db.DBConnection;
+import edu.fct.wholesalemanagemetsystem.model.Customer;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -19,21 +20,21 @@ import java.util.ResourceBundle;
 
 public class ViewCustomerController implements Initializable {
     @FXML
-    private TableView<CustomerTableModel> tableCustomerDetails;
+    private TableView<Customer> tableCustomerDetails;
 
     @FXML
-    private TableColumn<CustomerTableModel, String> col1CustomerID;
+    private TableColumn<Customer, String> col1CustomerID;
 
     @FXML
-    private TableColumn<CustomerTableModel, String> col2CustomerName;
+    private TableColumn<Customer, String> col2CustomerName;
 
     @FXML
-    private TableColumn<CustomerTableModel, String> col3TeleNumber;
+    private TableColumn<Customer, String> col3TeleNumber;
 
     @FXML
-    private TableColumn<CustomerTableModel, String> col4CustomerAddress;
+    private TableColumn<Customer, String> col4CustomerAddress;
 
-    ObservableList<CustomerTableModel> customerdatalist = FXCollections.observableArrayList();
+    ObservableList<Customer> customerdatalist = FXCollections.observableArrayList();
 
     @FXML
     void showCustomerDetails(ActionEvent event) {
@@ -45,7 +46,7 @@ public class ViewCustomerController implements Initializable {
             Statement st = con.createStatement();
             ResultSet rs = st.executeQuery("select * from customer");
             while (rs.next()){
-                customerdatalist.add(new CustomerTableModel(
+                customerdatalist.add(new Customer(
                         rs.getString("customer_id"),
                         rs.getString("customer_name"),
                         rs.getString("telephone_no"),

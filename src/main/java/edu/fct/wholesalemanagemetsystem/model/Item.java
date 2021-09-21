@@ -1,20 +1,21 @@
-package edu.fct.wholesalemanagemetsystem.controller;
+package edu.fct.wholesalemanagemetsystem.model;
 
-public class ItemTableModel {
+public class Item {
     String itemId;
     String itemName;
     String brand;
     String availableQty;
     String unitPrize;
 
+    public Item() {
+    }
 
-    public ItemTableModel(String itemId, String itemName, String brand, String availableQty, String uPrize) {
+    public Item(String itemId, String itemName, String brand, String availableQty, String unitPrize) {
         this.itemId = itemId;
         this.itemName = itemName;
         this.brand = brand;
         this.availableQty = availableQty;
-        this.unitPrize = uPrize;
-//        this.uPrize = String.valueOf(uPrize);
+        this.unitPrize = unitPrize;
     }
 
     public String getItemId() {
@@ -53,7 +54,7 @@ public class ItemTableModel {
         return unitPrize;
     }
 
-    public void setUnitPrize(String uPrize) {
-        this.unitPrize = uPrize;
+    public void setUnitPrize(String unitPrize) {
+        this.unitPrize = unitPrize;
     }
 }
