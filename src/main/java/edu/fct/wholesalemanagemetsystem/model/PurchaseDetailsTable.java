@@ -1,10 +1,14 @@
-package edu.fct.wholesalemanagemetsystem.controller;
+package edu.fct.wholesalemanagemetsystem.model;
 
-public class PurchaseDetailsTableModel {
+public class PurchaseDetailsTable {
+    String col1Date;
+    String col2PurchaseID;
+    String col3TotalCost;
 
-    String col1Date, col2PurchaseID, col3TotalCost;
+    public PurchaseDetailsTable() {
+    }
 
-    public PurchaseDetailsTableModel(String col1Date, String col2PurchaseID, String col3TotalCost) {
+    public PurchaseDetailsTable(String col1Date, String col2PurchaseID, String col3TotalCost) {
         this.col1Date = col1Date;
         this.col2PurchaseID = col2PurchaseID;
         this.col3TotalCost = col3TotalCost;

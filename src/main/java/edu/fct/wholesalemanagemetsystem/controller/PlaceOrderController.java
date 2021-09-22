@@ -98,8 +98,6 @@ public class PlaceOrderController implements Initializable {
         int qty = Integer.parseInt(txtQty.getText());
         double unitPrice = Double.parseDouble(txtUnitPrice.getText());
         double price = qty * unitPrice;
-//        double sum = price;
-//        double total = price + sum;
         PlaceOrderTable placeOrderTable = new PlaceOrderTable(itemCode,descriton,qty,unitPrice,price);
 
         placeOrderTableObservableList.add(placeOrderTable);
@@ -119,17 +117,6 @@ public class PlaceOrderController implements Initializable {
 
     @FXML
     void btnClearAllFieldsOnAction(ActionEvent event) throws IOException {
-//        txtOrderID.clear();
-//        cmdCustomerID.valueProperty().set(null);
-//        txtCustomerName.clear();
-//        txtDescription.clear();
-//        txtQty.clear();
-//        txtQtyOnHand.clear();
-//        txtTotal.clear();
-//        txtUnitPrice.clear();
-//        cmdItemID.valueProperty().set(null);
-//        tableOrderDesc.getItems().clear();
-
         Pane newLoadedPane =  FXMLLoader.load(Main.class.getResource("placeOrder.fxml"));
         placeOrderPane.getChildren().add(newLoadedPane);
     }
@@ -152,7 +139,6 @@ public class PlaceOrderController implements Initializable {
                 alert.setContentText("Order Successfully Added!");
 
                 alert.showAndWait();
-                //resetTextFields();
 
             } catch (Exception e) {
                 Alert alert = new Alert(Alert.AlertType.ERROR);
@@ -208,7 +194,6 @@ public class PlaceOrderController implements Initializable {
         LocalDate date = LocalDate.now();
         String sDate = date.toString();
         txtDate.setText(sDate);
-        //orderDateText.setText(LocalDate.now().toString());
     }
 
     public void loadCustomerIds() {

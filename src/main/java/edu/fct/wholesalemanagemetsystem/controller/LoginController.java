@@ -9,13 +9,13 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Scene;
-import javafx.scene.control.*;
+import javafx.scene.control.Alert;
+import javafx.scene.control.ButtonType;
+import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
-
-import javax.swing.*;
 import java.awt.*;
 import java.io.IOException;
 import java.net.URL;
@@ -90,7 +90,6 @@ public class LoginController implements Initializable {
                 alert.showAndWait();
             }
         } else {
-            //JOptionPane.showMessageDialog((Component) null, "invalid username");
             Alert alert = new Alert(Alert.AlertType.WARNING);
             alert.setTitle("Warning!");
             alert.setHeaderText("Your Username is Incorrect.");
@@ -100,15 +99,6 @@ public class LoginController implements Initializable {
         }
 
     }
-
-//    @FXML
-//    void showPassword(ActionEvent event) {
-//        if(cbShowPassword.isSelected()){
-//            pfPassword.setEchoChar((char)0);
-//        }else{
-//            pfPassword.setEchoChar('*');
-//        }
-//    }
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {

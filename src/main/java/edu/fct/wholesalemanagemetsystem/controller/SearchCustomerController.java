@@ -88,14 +88,9 @@ public class SearchCustomerController implements Initializable {
     }
 
     @FXML
-    void searchCustomer(ActionEvent event) throws SQLException, ClassNotFoundException {
+    void searchCustomer(ActionEvent event) {
         String searchID = tfSearchID.getText();
         String searchTele = tfSearchTele.getText();
-
-//        String id = tfCustomerID.getText();
-//        String name = tfCustomerName.getText();
-//        int tele = tfTeleNo.getText();
-//        String address = tfCustomerAddress.getText();
 
         try {
             Connection con = DBConnection.getInstance().getConnection();

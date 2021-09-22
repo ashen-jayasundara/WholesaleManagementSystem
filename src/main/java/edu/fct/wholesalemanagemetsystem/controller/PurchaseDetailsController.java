@@ -1,6 +1,7 @@
 package edu.fct.wholesalemanagemetsystem.controller;
 
 import edu.fct.wholesalemanagemetsystem.db.DBConnection;
+import edu.fct.wholesalemanagemetsystem.model.PurchaseDetailsTable;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -20,21 +21,21 @@ import java.util.ResourceBundle;
 public class PurchaseDetailsController implements Initializable {
 
     @FXML
-    private TableView<PurchaseDetailsTableModel> tablePurchaseDetails;
+    private TableView<PurchaseDetailsTable> tablePurchaseDetails;
 
     @FXML
-    private TableColumn<PurchaseDetailsTableModel, String> col1Date;
+    private TableColumn<PurchaseDetailsTable, String> col1Date;
 
     @FXML
-    private TableColumn<PurchaseDetailsTableModel, String> col2PurchaseID;
+    private TableColumn<PurchaseDetailsTable, String> col2PurchaseID;
 
     @FXML
-    private TableColumn<PurchaseDetailsTableModel, String> col3TotalCost;
+    private TableColumn<PurchaseDetailsTable, String> col3TotalCost;
 
     @FXML
     private Label tfTotalPurchases;
 
-    ObservableList<PurchaseDetailsTableModel> purchasedetaillist = FXCollections.observableArrayList();
+    ObservableList<PurchaseDetailsTable> purchasedetaillist = FXCollections.observableArrayList();
 
     public void loadPurchaseDetails(){
         try {
@@ -42,7 +43,7 @@ public class PurchaseDetailsController implements Initializable {
             Statement st = con.createStatement();
             ResultSet rs = st.executeQuery("select purchase_id,date,total_cost from purchase");
             while (rs.next()){
-                purchasedetaillist.add(new PurchaseDetailsTableModel(rs.getString("date"),rs.getString("purchase_id"),rs.getString("total_cost")));
+                purchasedetaillist.add(new PurchaseDetailsTable(rs.getString("date"),rs.getString("purchase_id"),rs.getString("total_cost")));
             }
         } catch (SQLException | ClassNotFoundException e) {
             e.printStackTrace();

@@ -1,9 +1,9 @@
 package edu.fct.wholesalemanagemetsystem.controller;
 
 import edu.fct.wholesalemanagemetsystem.db.DBConnection;
+import edu.fct.wholesalemanagemetsystem.model.OrderDetailsTable;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
@@ -21,21 +21,21 @@ import java.util.ResourceBundle;
 public class OrderDetailsController implements Initializable {
 
     @FXML
-    private TableView<OrderDetailsTableModel> tableOrderDetails;
+    private TableView<OrderDetailsTable> tableOrderDetails;
 
     @FXML
-    private TableColumn<OrderDetailsTableModel, String> col1Date;
+    private TableColumn<OrderDetailsTable, String> col1Date;
 
     @FXML
-    private TableColumn<OrderDetailsTableModel, String> col2OrderID;
+    private TableColumn<OrderDetailsTable, String> col2OrderID;
 
     @FXML
-    private TableColumn<OrderDetailsTableModel, String> col3TotalPrice;
+    private TableColumn<OrderDetailsTable, String> col3TotalPrice;
 
     @FXML
     private Label tfTotalSales;
 
-    ObservableList<OrderDetailsTableModel> orderdetaillist = FXCollections.observableArrayList();
+    ObservableList<OrderDetailsTable> orderdetaillist = FXCollections.observableArrayList();
 
     public void loadOrderDetails(){
         try {
@@ -43,7 +43,7 @@ public class OrderDetailsController implements Initializable {
             Statement st = con.createStatement();
             ResultSet rs = st.executeQuery("select order_id,date,total_price from orders");
             while (rs.next()){
-                orderdetaillist.add(new OrderDetailsTableModel(rs.getString("date"),rs.getString("order_id"),rs.getString("total_price")));
+                orderdetaillist.add(new OrderDetailsTable(rs.getString("date"),rs.getString("order_id"),rs.getString("total_price")));
             }
         } catch (SQLException | ClassNotFoundException e) {
             e.printStackTrace();

@@ -53,9 +53,6 @@ public class CustomerController implements Initializable {
         searchCustomer();
     }
 
-//    @FXML
-//    void showCustomerDetails(ActionEvent event) throws SQLException, ClassNotFoundException {
-//    }
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         Pane newLoadedPane = null;

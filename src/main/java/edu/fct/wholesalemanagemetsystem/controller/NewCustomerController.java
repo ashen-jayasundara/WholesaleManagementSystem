@@ -93,7 +93,6 @@ public class NewCustomerController implements Initializable {
 
     @FXML
     void resetFields(ActionEvent event) {
-        //newCustomerPane.setVisible(false);
         resetTextFields();
     }
 

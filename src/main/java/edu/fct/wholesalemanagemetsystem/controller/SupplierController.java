@@ -40,10 +40,6 @@ public class SupplierController implements Initializable {
         btnSearchSupplier.setDefaultButton(true);
     }
 
-//    @FXML
-//    void showSupplierDetails(ActionEvent event) {
-//
-//    }
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {

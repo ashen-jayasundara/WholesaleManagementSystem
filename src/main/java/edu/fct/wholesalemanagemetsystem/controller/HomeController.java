@@ -1,8 +1,6 @@
 package edu.fct.wholesalemanagemetsystem.controller;
 
 import com.jfoenix.controls.JFXButton;
-
-//import com.sun.imageio.plugins.bmp.BMPMetadata;
 import edu.fct.wholesalemanagemetsystem.Main;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -19,10 +17,10 @@ import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
-import javax.imageio.IIOParam;
 import java.awt.*;
 import java.io.IOException;
 import java.sql.SQLException;
+
 
 public class HomeController {
 
@@ -290,5 +288,3 @@ public class HomeController {
     }
 }
 
-//ujyt
-//olijok

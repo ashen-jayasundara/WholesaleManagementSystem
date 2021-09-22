@@ -1,29 +1,17 @@
 package edu.fct.wholesalemanagemetsystem.controller;
 
-import edu.fct.wholesalemanagemetsystem.Main;
 import edu.fct.wholesalemanagemetsystem.db.DBConnection;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Group;
-import javafx.scene.Scene;
 import javafx.scene.chart.*;
 import javafx.scene.control.Label;
-import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.Pane;
-import javafx.stage.Stage;
 
 import java.sql.Connection;
 import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.sql.Statement;
-import java.time.DayOfWeek;
 import java.time.LocalDateTime;
-import java.time.Month;
 import java.time.format.DateTimeFormatter;
-import java.util.Calendar;
-import java.util.Date;
 
 public class DashboardController {
 
@@ -70,13 +58,6 @@ public class DashboardController {
         DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy-MM-dd");
         LocalDateTime now = LocalDateTime.now();
         String todayDate = dtf.format(now);
-        //        Date date = new Date();
-//        int month = date.getMonth();
-//        System.out.println(month);
-//        Calendar cal = Calendar.getInstance();
-//        cal.add(Calendar.MONTH, -1);
-
-
 
         try {
             Connection con = DBConnection.getInstance().getConnection();
@@ -167,13 +148,6 @@ public class DashboardController {
             purchaseValue.setText(s1);
             salesValue.setText(s2);
 
-
-//            PieChart pieChart = new PieChart(pieChartData);
-//            Group root = new Group(pieChart);
-//            Scene scene = new Scene(root ,70, 100);
-//            Stage primaryStage = new Stage();
-//            primaryStage.setScene(scene);
-//            primaryStage.show();
         }
         catch (Exception e) {
 
@@ -189,34 +163,12 @@ public class DashboardController {
             while(rs.next()) {
                 seriesDays.getData().add(new XYChart.Data<String, Number>(rs.getString(1), rs.getInt(2)));
             }
-//            seriesDays.getData().add(new XYChart.Data<String, Number>("1", 555));
-//            seriesDays.getData().add(new XYChart.Data<String, Number>("2", 358));
-//            seriesDays.getData().add(new XYChart.Data<String, Number>("3", 54));
-//            seriesDays.getData().add(new XYChart.Data<String, Number>("4", 50));
-//            seriesDays.getData().add(new XYChart.Data<String, Number>("5", 158));
+
 
             ObservableList<XYChart.Series<String, Number>> data = FXCollections.<XYChart.Series<String, Number>>observableArrayList();
             data.add(seriesDays);
             barChartDailyOrders.setData(data);
-//            Axis<String> xAxis = null;
-//            Axis<Number> yAxis = null;
-//            new BarChart<String,Number>(xAxis,yAxis);
-//            XYChart.Series series = new XYChart.Series();
-//           xAxis.setLabel("Day");
-//            yAxis.setLabel("Orders");
-//
-//            ObservableList<BarChart<String,Number>> barChartData =(
-//                    new XYChart.Data("1",20),
-//                    new XYChart.Data("2",50),
-//                    new XYChart.Data("3",10)
-//            );
 
-            //ObservableList<XYChart.Data> barChartData = FXCollections.observableArrayList();
-//            for(int i=1; i<=31; i++) {
-//               new XYChart.Data<>(i, 5),
-//            }
-
-//            barChartDailyOrders.setData(barChartData);
         }
         catch (Exception e) {
 
