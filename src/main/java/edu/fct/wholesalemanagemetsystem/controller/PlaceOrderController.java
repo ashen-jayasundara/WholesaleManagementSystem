@@ -113,6 +113,7 @@ public class PlaceOrderController implements Initializable {
             total = total + pot.getPrice();
         }
         txtTotal.setText(String.valueOf(total));
+        updateQtyOnHand();
     }
 
     @FXML
@@ -148,7 +149,6 @@ public class PlaceOrderController implements Initializable {
 
                 alert.showAndWait();
             }
-
     }
 
     @FXML
@@ -222,6 +222,22 @@ public class PlaceOrderController implements Initializable {
             e.printStackTrace();
         }
         cmdItemID.setItems(itemIdList);
+    }
+
+    public void updateQtyOnHand(){
+        String item_id = cmdItemID.getValue();
+        int qtyOnHand = Integer.parseInt(txtQtyOnHand.getText());
+        int qty = Integer.parseInt(txtQty.getText());
+        qtyOnHand = qtyOnHand - qty;
+        try {
+            Connection con = DBConnection.getInstance().getConnection();
+            Statement st = con.createStatement();
+            st.executeUpdate("update item set available_quantity='" + qtyOnHand + "' where item_id='" + item_id + "'");
+
+        }
+        catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     @FXML

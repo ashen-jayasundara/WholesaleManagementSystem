@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="618.0" prefWidth="1126.0" style="-fx-background-color: #EEEEEE;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.fct.wholesalemanagemetsystem.controller.PurchaseDetailsController">
+<AnchorPane prefHeight="618.0" prefWidth="1126.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.fct.wholesalemanagemetsystem.controller.PurchaseDetailsController">
    <children>
       <TableView fx:id="tablePurchaseDetails" layoutX="118.0" layoutY="111.0" prefHeight="478.0" prefWidth="890.0">
          <columns>
@@ -21,7 +21,7 @@
             <Font name="System Bold" size="18.0" />
          </font>
       </Label>
-      <Label fx:id="tfTotalPurchases" alignment="CENTER_RIGHT" layoutX="772.0" layoutY="49.0" prefHeight="27.0" prefWidth="235.0" style="-fx-background-color: white;" text="0.00">
+      <Label fx:id="tfTotalPurchases" alignment="CENTER_RIGHT" layoutX="772.0" layoutY="49.0" prefHeight="27.0" prefWidth="235.0" style="-fx-background-color: #EEEEEE;" text="0.00">
          <font>
             <Font name="System Bold" size="18.0" />
          </font>

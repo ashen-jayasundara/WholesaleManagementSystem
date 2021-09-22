@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="815.0" prefWidth="1267.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.fct.wholesalemanagemetsystem.controller.AccountController">
+<AnchorPane prefHeight="815.0" prefWidth="1267.0" style="-fx-background-color: #EEEEEE;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.fct.wholesalemanagemetsystem.controller.AccountController">
    <children>
       <Pane focusTraversable="true" prefHeight="815.0" prefWidth="1267.0">
          <children>
@@ -38,7 +38,7 @@
             </JFXButton>
             <ScrollPane hbarPolicy="NEVER" layoutX="68.0" layoutY="127.0" prefHeight="622.0" prefWidth="1127.0">
                <content>
-                  <AnchorPane fx:id="accountPane" focusTraversable="true" minHeight="0.0" minWidth="0.0" prefHeight="618.0" prefWidth="1126.0" />
+                  <AnchorPane fx:id="accountPane" focusTraversable="true" minHeight="0.0" minWidth="0.0" prefHeight="618.0" prefWidth="1126.0" style="-fx-background-color: white;" />
                </content>
             </ScrollPane>
          </children>
