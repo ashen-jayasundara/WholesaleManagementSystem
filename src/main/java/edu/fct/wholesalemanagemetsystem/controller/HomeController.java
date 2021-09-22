@@ -110,8 +110,12 @@ public class HomeController {
 
     @FXML
     void btnLoadDashboard(ActionEvent event) throws IOException {
-        Pane newLoadedPane =  FXMLLoader.load(Main.class.getResource("dashboard.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("dashboard.fxml"));
+        Pane newLoadedPane = fxmlLoader.load();
         showPane.getChildren().add(newLoadedPane);
+        DashboardController user = fxmlLoader.getController();
+        user.statLoading();
+
         btnDashboard.setDefaultButton(true);
         btnPlaceOrder.setDefaultButton(false);
         btnItem.setDefaultButton(false);
@@ -228,8 +232,11 @@ public class HomeController {
     }
 
     public void btnLoadDashboard1() throws IOException {
-        Pane newLoadedPane =  FXMLLoader.load(Main.class.getResource("dashboard.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("dashboard.fxml"));
+        Pane newLoadedPane = fxmlLoader.load();
         showPane.getChildren().add(newLoadedPane);
+        DashboardController user = fxmlLoader.getController();
+        user.statLoading();
         btnDashboard.setDefaultButton(true);
     }
 
