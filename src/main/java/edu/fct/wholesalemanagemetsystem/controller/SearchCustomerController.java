@@ -2,6 +2,7 @@ package edu.fct.wholesalemanagemetsystem.controller;
 
 import edu.fct.wholesalemanagemetsystem.Main;
 import edu.fct.wholesalemanagemetsystem.db.DBConnection;
+import edu.fct.wholesalemanagemetsystem.model.Customer;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -155,6 +156,21 @@ public class SearchCustomerController implements Initializable {
             alert.setHeaderText("");
             alert.setContentText("Update Unsuccessful!");
             alert.showAndWait();
+        }
+    }
+
+    public static Customer searchCustomer(String id ) throws SQLException, ClassNotFoundException{
+        Connection con = DBConnection.getInstance().getConnection();
+        Statement st = con.createStatement();
+        ResultSet rst = st.executeQuery("select * from customer where customer_id='"+id+"'");
+        if(rst.next()){
+            return new Customer(
+                    rst.getString("customer_id"),
+                    rst.getString("customer_name"),
+                    rst.getString("telephone_no"),
+                    rst.getString("customer_address"));
+        }else{
+            return null;
         }
     }
 

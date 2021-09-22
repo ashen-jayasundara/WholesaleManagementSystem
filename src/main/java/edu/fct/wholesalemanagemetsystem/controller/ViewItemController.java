@@ -55,11 +55,11 @@ public class ViewItemController implements Initializable {
         } catch (SQLException | ClassNotFoundException e) {
             e.printStackTrace();
         }
-        col1ItemID.setCellValueFactory(new PropertyValueFactory<>("itemId"));
-        col2ItemName.setCellValueFactory(new PropertyValueFactory<>("itemName"));
+        col1ItemID.setCellValueFactory(new PropertyValueFactory<>("item_id"));
+        col2ItemName.setCellValueFactory(new PropertyValueFactory<>("item_name"));
         col3Brand.setCellValueFactory(new PropertyValueFactory<>("brand"));
-        col4Qty.setCellValueFactory(new PropertyValueFactory<>("availableQty"));
-        col5UnitPrize.setCellValueFactory(new PropertyValueFactory<>("unitPrize"));
+        col4Qty.setCellValueFactory(new PropertyValueFactory<>("available_quantity"));
+        col5UnitPrize.setCellValueFactory(new PropertyValueFactory<>("unit_prize"));
         tableItemDetails.setItems(itemdatalist);
     }
 

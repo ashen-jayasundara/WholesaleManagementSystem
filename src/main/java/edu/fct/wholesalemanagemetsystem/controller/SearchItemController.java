@@ -2,6 +2,7 @@ package edu.fct.wholesalemanagemetsystem.controller;
 
 import edu.fct.wholesalemanagemetsystem.Main;
 import edu.fct.wholesalemanagemetsystem.db.DBConnection;
+import edu.fct.wholesalemanagemetsystem.model.Item;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -14,6 +15,7 @@ import javafx.scene.layout.Pane;
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.sql.Statement;
 
 public class SearchItemController {
@@ -161,5 +163,20 @@ public class SearchItemController {
         }
     }
 
+    public static Item searchItem(String id ) throws SQLException, ClassNotFoundException{
+        Connection con = DBConnection.getInstance().getConnection();
+        Statement st = con.createStatement();
+        ResultSet rst = st.executeQuery("select * from item where item_id='"+id+"'");
+        if(rst.next()){
+            return new Item(
+                    rst.getString("item_id"),
+                    rst.getString("item_name"),
+                    rst.getString("brand"),
+                    rst.getString("available_quantity"),
+                    rst.getString("unit_prize"));
+        }else{
+            return null;
+        }
+    }
 }
 

@@ -1,37 +1,37 @@
 package edu.fct.wholesalemanagemetsystem.model;
 
 public class Item {
-    String itemId;
-    String itemName;
+    String item_id;
+    String item_name;
     String brand;
-    String availableQty;
-    String unitPrize;
+    String available_quantity;
+    String unit_prize;
 
     public Item() {
     }
 
-    public Item(String itemId, String itemName, String brand, String availableQty, String unitPrize) {
-        this.itemId = itemId;
-        this.itemName = itemName;
+    public Item(String item_id, String item_name, String brand, String available_quantity, String unit_prize) {
+        this.item_id = item_id;
+        this.item_name = item_name;
         this.brand = brand;
-        this.availableQty = availableQty;
-        this.unitPrize = unitPrize;
+        this.available_quantity = available_quantity;
+        this.unit_prize = unit_prize;
     }
 
-    public String getItemId() {
-        return itemId;
+    public String getItem_id() {
+        return item_id;
     }
 
-    public void setItemId(String itemId) {
-        this.itemId = itemId;
+    public void setItem_id(String item_id) {
+        this.item_id = item_id;
     }
 
-    public String getItemName() {
-        return itemName;
+    public String getItem_name() {
+        return item_name;
     }
 
-    public void setItemName(String itemName) {
-        this.itemName = itemName;
+    public void setItem_name(String item_name) {
+        this.item_name = item_name;
     }
 
     public String getBrand() {
@@ -42,19 +42,19 @@ public class Item {
         this.brand = brand;
     }
 
-    public String getAvailableQty() {
-        return availableQty;
+    public String getAvailable_quantity() {
+        return available_quantity;
     }
 
-    public void setAvailableQty(String availableQty) {
-        this.availableQty = availableQty;
+    public void setAvailable_quantity(String available_quantity) {
+        this.available_quantity = available_quantity;
     }
 
-    public String getUnitPrize() {
-        return unitPrize;
+    public String getUnit_prize() {
+        return unit_prize;
     }
 
-    public void setUnitPrize(String unitPrize) {
-        this.unitPrize = unitPrize;
+    public void setUnit_prize(String unit_prize) {
+        this.unit_prize = unit_prize;
     }
 }
