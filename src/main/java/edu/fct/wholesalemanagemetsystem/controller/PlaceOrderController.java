@@ -5,6 +5,7 @@ import edu.fct.wholesalemanagemetsystem.Main;
 import edu.fct.wholesalemanagemetsystem.db.DBConnection;
 import edu.fct.wholesalemanagemetsystem.model.Customer;
 import edu.fct.wholesalemanagemetsystem.model.Item;
+import edu.fct.wholesalemanagemetsystem.model.OrderDetail;
 import edu.fct.wholesalemanagemetsystem.model.PlaceOrderTable;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -12,10 +13,13 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.geometry.Pos;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
+import javafx.util.Duration;
+import org.controlsfx.control.Notifications;
 
 import java.io.IOException;
 import java.net.URL;
@@ -90,6 +94,7 @@ public class PlaceOrderController implements Initializable {
     ObservableList customerIdList = FXCollections.observableArrayList();
     ObservableList itemIdList = FXCollections.observableArrayList();
     ObservableList<PlaceOrderTable> placeOrderTableObservableList = FXCollections.observableArrayList();
+    ObservableList<OrderDetail> orderDetails = FXCollections.observableArrayList();
 
     @FXML
     void txtAddItemToTableOnAction(ActionEvent event) {
@@ -113,32 +118,59 @@ public class PlaceOrderController implements Initializable {
             total = total + pot.getPrice();
         }
         txtTotal.setText(String.valueOf(total));
-        updateQtyOnHand();
+
+        try {
+            updateQtyOnHand();
+            addOrderDetail();
+
+            Notifications.create().darkStyle().position(Pos.BOTTOM_RIGHT).hideAfter(Duration.seconds(1)).text("Added").showInformation();
+        } catch (SQLException|ClassNotFoundException e) {
+            Notifications.create().darkStyle().position(Pos.BOTTOM_RIGHT).hideAfter(Duration.seconds(1)).text("Add Failed").showError();
+        }
+
     }
 
     @FXML
-    void btnClearAllFieldsOnAction(ActionEvent event) throws IOException {
+    void btnClearAllFieldsOnAction(ActionEvent event) {
+        try {
+            clearAll();
+            Notifications.create().darkStyle().position(Pos.BOTTOM_RIGHT).hideAfter(Duration.seconds(2)).text("Cleared All").showInformation();
+        } catch (IOException e) {
+            Notifications.create().darkStyle().position(Pos.BOTTOM_RIGHT).hideAfter(Duration.seconds(2)).text("Error Occurred").showError();
+        }
+
+    }
+    public void clearAll() throws IOException {
+
         Pane newLoadedPane =  FXMLLoader.load(Main.class.getResource("placeOrder.fxml"));
         placeOrderPane.getChildren().add(newLoadedPane);
+//            txtOrderID.clear();
+//            cmdCustomerID.setValue(null);
+//            txtCustomerName.clear();
+//            txtDescription.clear();
+//            txtQty.clear();
+//            txtQtyOnHand.clear();
+//            txtTotal.clear();
+//            txtUnitPrice.clear();
+//            cmdItemID.setValue(null);
+//            tableOrderDesc.getItems().clear();
+
     }
 
     @FXML
     void btnPrintAndSaveOnAction(ActionEvent event) {
         String order_id=txtOrderID.getText();
-        String customer_id=cmdCustomerID.getValue();
-        String date=(String) txtDate.getText();
         String total=(String) txtTotal.getText();
 
             try {
                 Connection con = DBConnection.getInstance().getConnection();
                 Statement st = con.createStatement();
-                st.executeUpdate("insert into orders values ('" + order_id + "','" + customer_id + "','" + date + "','" + total + "')");
+                st.executeUpdate("update orders set total_price='" + total + "' where order_id='" + order_id + "'");
 
                 Alert alert = new Alert(Alert.AlertType.INFORMATION);
                 alert.setTitle("Information");
                 alert.setHeaderText(null);
                 alert.setContentText("Order Successfully Added!");
-
                 alert.showAndWait();
 
             } catch (Exception e) {
@@ -146,14 +178,28 @@ public class PlaceOrderController implements Initializable {
                 alert.setTitle("Error");
                 alert.setHeaderText("");
                 alert.setContentText("Order Failed!");
-
                 alert.showAndWait();
             }
+
+        try {
+            clearAll();
+            Notifications.create().darkStyle().position(Pos.BOTTOM_RIGHT).hideAfter(Duration.seconds(2)).text("Cleared All").showInformation();
+        } catch (IOException e) {
+            Notifications.create().darkStyle().position(Pos.BOTTOM_RIGHT).hideAfter(Duration.seconds(2)).text("Error Occurred").showError();
+        }
     }
 
     @FXML
     void btnRemoveFieldOnAction(ActionEvent event) {
-        tableOrderDesc.getItems().removeAll(tableOrderDesc.getSelectionModel().getSelectedItem());
+        try {
+            updateCascadeQtyOnHand();
+            deleteCascadeOrderDetail();
+            tableOrderDesc.getItems().removeAll(tableOrderDesc.getSelectionModel().getSelectedItem());
+
+            Notifications.create().darkStyle().position(Pos.BOTTOM_RIGHT).hideAfter(Duration.seconds(1)).text("Removed").showInformation();
+        } catch (SQLException|ClassNotFoundException e) {
+            Notifications.create().darkStyle().position(Pos.BOTTOM_RIGHT).hideAfter(Duration.seconds(1)).text("Remove Failed").showError();
+        }
     }
 
     @FXML
@@ -190,6 +236,11 @@ public class PlaceOrderController implements Initializable {
         }
     }
 
+    @FXML
+    void txtItemUnitPriceOnAction(ActionEvent event) {
+        txtQty.requestFocus();
+    }
+
     private void setOrderDate() {
         LocalDate date = LocalDate.now();
         String sDate = date.toString();
@@ -224,25 +275,78 @@ public class PlaceOrderController implements Initializable {
         cmdItemID.setItems(itemIdList);
     }
 
-    public void updateQtyOnHand(){
+    public void updateQtyOnHand() throws SQLException, ClassNotFoundException {
         String item_id = cmdItemID.getValue();
         int qtyOnHand = Integer.parseInt(txtQtyOnHand.getText());
         int qty = Integer.parseInt(txtQty.getText());
         qtyOnHand = qtyOnHand - qty;
-        try {
+
             Connection con = DBConnection.getInstance().getConnection();
             Statement st = con.createStatement();
             st.executeUpdate("update item set available_quantity='" + qtyOnHand + "' where item_id='" + item_id + "'");
 
+
+    }
+
+    public void addOrderDetail() throws SQLException, ClassNotFoundException {
+        String order_id=txtOrderID.getText();
+        String item_id=cmdItemID.getValue();
+        String quantity= txtQty.getText();
+        String unit_price=txtUnitPrice.getText();
+        int qty = Integer.parseInt(quantity);
+        float unitPrice= Float.parseFloat(unit_price);
+
+
+        String customer_id=cmdCustomerID.getValue();
+        String date=(String) txtDate.getText();
+        String total=(String) txtTotal.getText();
+
+        try {
+            Connection con = DBConnection.getInstance().getConnection();
+            Statement st = con.createStatement();
+            st.executeUpdate("insert into orders values ('" + order_id + "','" + customer_id + "','" + date + "','" + total + "')");
+
+        } catch (Exception e) {
+
         }
-        catch (Exception e) {
-            e.printStackTrace();
+
+        Connection con = DBConnection.getInstance().getConnection();
+        Statement st = con.createStatement();
+        st.executeUpdate("insert into order_detail values ('" + order_id + "','" + item_id + "'," + qty + "," + unitPrice + ")");
+
+
+
+    }
+
+    public void updateCascadeQtyOnHand() throws SQLException, ClassNotFoundException {
+        String item_id;
+        int qty;
+        if (tableOrderDesc.getSelectionModel().getSelectedItem() != null) {
+            PlaceOrderTable selectedField = tableOrderDesc.getSelectionModel().getSelectedItem();
+            item_id = selectedField.getItem_id();
+            qty = selectedField.getQuantity();
+
+                Connection con = DBConnection.getInstance().getConnection();
+                Statement st = con.createStatement();
+                st.executeUpdate("update item set available_quantity=available_quantity+" + qty + " where item_id='" + item_id + "'");
+
         }
     }
 
-    @FXML
-    void txtItemUnitPriceOnAction(ActionEvent event) {
-        txtQty.requestFocus();
+    public void deleteCascadeOrderDetail() throws SQLException, ClassNotFoundException {
+        String order_id=txtOrderID.getText();
+        String item_id;
+
+        if (tableOrderDesc.getSelectionModel().getSelectedItem() != null) {
+            PlaceOrderTable selectedField = tableOrderDesc.getSelectionModel().getSelectedItem();
+            item_id = selectedField.getItem_id();
+
+                Connection con = DBConnection.getInstance().getConnection();
+                Statement st = con.createStatement();
+                st.executeUpdate("delete from order_detail where order_id='" + order_id + "' and item_id='" + item_id + "'");
+
+        }
+
     }
 
     @Override
