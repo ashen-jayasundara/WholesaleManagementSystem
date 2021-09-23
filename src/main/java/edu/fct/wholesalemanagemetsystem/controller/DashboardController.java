@@ -159,7 +159,7 @@ public class DashboardController implements Initializable {
         try {
             Connection con = DBConnection.getInstance().getConnection();
             Statement st = con.createStatement();
-            ResultSet rs = st.executeQuery("select date, count(order_id) from orders group by date limit 7");
+            ResultSet rs = st.executeQuery("select date, count(order_id) from orders group by date order by date desc limit 7");
 
             XYChart.Series<String, Number> seriesDays = new XYChart.Series<String, Number>();
             seriesDays.setName("Days");

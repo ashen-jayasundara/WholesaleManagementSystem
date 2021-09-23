@@ -41,7 +41,7 @@ public class PurchaseDetailsController implements Initializable {
         try {
             Connection con = DBConnection.getInstance().getConnection();
             Statement st = con.createStatement();
-            ResultSet rs = st.executeQuery("select purchase_id,date,total_cost from purchase");
+            ResultSet rs = st.executeQuery("select purchase_id,date,total_cost from purchase order by(date) desc");
             while (rs.next()){
                 purchasedetaillist.add(new PurchaseDetailsTable(rs.getString("date"),rs.getString("purchase_id"),rs.getString("total_cost")));
             }
@@ -56,7 +56,7 @@ public class PurchaseDetailsController implements Initializable {
         try {
             Connection con = DBConnection.getInstance().getConnection();
             Statement st = con.createStatement();
-            ResultSet rs = st.executeQuery("select sum(total_cost) from purchase");
+            ResultSet rs = st.executeQuery("select sum(total_cost) from purchase where date>= DATE_FORMAT( CURRENT_DATE, '%Y/%m/01' ) and date < DATE_FORMAT( CURRENT_DATE + INTERVAL 1 MONTH, '%Y/%m/01' )");
             rs.next();
             double total = rs.getDouble(1);
             tfTotalPurchases.setText(String.valueOf(total));

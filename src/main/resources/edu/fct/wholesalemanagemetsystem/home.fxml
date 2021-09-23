@@ -12,7 +12,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="scenePane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="864.0" prefWidth="1537.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.fct.wholesalemanagemetsystem.controller.HomeController">
+<AnchorPane fx:id="scenePane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="864.0" prefWidth="1537.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.fct.wholesalemanagemetsystem.controller.HomeController">
    <children>
       <Pane focusTraversable="true" prefHeight="864.0" prefWidth="1537.0">
          <children>
@@ -32,7 +32,7 @@
                                     <Font name="System Bold" size="18.0" />
                                  </font>
                               </Label>
-                              <Pane fx:id="userEditPane" layoutX="183.0" layoutY="54.0" onMouseExited="#OMCLoadUserPane1" onMouseMoved="#OMCLoadUserPane" prefHeight="68.0" prefWidth="86.0" style="-fx-background-color: #a6a6a6;">
+                              <Pane fx:id="userEditPane" layoutX="183.0" layoutY="54.0" onMouseExited="#OMCLoadUserPane1" onMouseMoved="#OMCLoadUserPane" prefHeight="68.0" prefWidth="86.0" style="-fx-background-color: #eeeeee;">
                                  <children>
                                     <JFXButton layoutY="2.0" onAction="#btnLoadUserProfile" prefHeight="21.0" prefWidth="86.0" text="User Profile">
                                        <font>
@@ -125,7 +125,7 @@
                         <Insets left="40.0" />
                      </padding>
                   </JFXButton>
-                  <JFXButton fx:id="btnPurchases" alignment="BASELINE_LEFT" layoutX="10.0" layoutY="320.0" onAction="#btnLordPurchases" prefHeight="76.0" prefWidth="282.0" styleClass="sideButton" stylesheets="@home.css" text=" Purchases" textFill="WHITE">
+                  <JFXButton fx:id="btnPurchases" alignment="BASELINE_LEFT" layoutX="10.0" layoutY="320.0" onAction="#btnLordPurchases" prefHeight="76.0" prefWidth="282.0" styleClass="sideButton" stylesheets="@home.css" text=" Purchase" textFill="WHITE">
                      <font>
                         <Font name="System Bold" size="18.0" />
                      </font>
@@ -140,7 +140,7 @@
                         <Insets left="40.0" />
                      </padding>
                   </JFXButton>
-                  <JFXButton fx:id="btnAccount" alignment="BASELINE_LEFT" layoutX="10.0" layoutY="548.0" onAction="#btnLordAccount" prefHeight="76.0" prefWidth="282.0" styleClass="sideButton" stylesheets="@home.css" text=" Account" textFill="WHITE">
+                  <JFXButton fx:id="btnAccount" alignment="BASELINE_LEFT" disable="true" layoutX="10.0" layoutY="548.0" onAction="#btnLordAccount" prefHeight="76.0" prefWidth="282.0" styleClass="sideButton" stylesheets="@home.css" text=" Account" textFill="WHITE">
                      <font>
                         <Font name="System Bold" size="18.0" />
                      </font>

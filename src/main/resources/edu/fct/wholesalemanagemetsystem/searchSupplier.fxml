@@ -12,7 +12,7 @@
 <?import javafx.scene.text.Text?>
 
 
-<AnchorPane fx:id="supplierPane" prefHeight="622.0" prefWidth="1127.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.fct.wholesalemanagemetsystem.controller.SearchSupplierController">
+<AnchorPane fx:id="supplierPane" prefHeight="622.0" prefWidth="1127.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.fct.wholesalemanagemetsystem.controller.SearchSupplierController">
    <children>
       <Pane prefHeight="622.0" prefWidth="1127.0">
          <children>

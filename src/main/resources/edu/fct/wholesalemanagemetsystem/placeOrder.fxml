@@ -11,7 +11,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane fx:id="placeOrderPane" prefHeight="815.0" prefWidth="1267.0" style="-fx-background-color: #EEEEEE;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.fct.wholesalemanagemetsystem.controller.PlaceOrderController">
+<AnchorPane fx:id="placeOrderPane" prefHeight="815.0" prefWidth="1267.0" style="-fx-background-color: #EEEEEE;" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.fct.wholesalemanagemetsystem.controller.PlaceOrderController">
    <children>
       <Pane layoutX="60.0" layoutY="44.0" prefHeight="188.0" prefWidth="1146.0" style="-fx-background-color: white;">
          <children>
@@ -48,13 +48,13 @@
       </Pane>
       <Pane layoutX="60.0" layoutY="247.0" prefHeight="524.0" prefWidth="1146.0" style="-fx-background-color: white;">
          <children>
-            <TableView fx:id="tableOrderDesc" layoutX="52.0" layoutY="95.0" onSort="#tblShowOrderDescOnAction" prefHeight="276.0" prefWidth="1042.0">
+            <TableView fx:id="tableOrderDesc" layoutX="52.0" layoutY="95.0" onSort="#tblShowOrderDescOnAction" prefHeight="276.0" prefWidth="1042.0" stylesheets="@home.css">
                <columns>
                   <TableColumn fx:id="col1ItemID" prefWidth="150.4000015258789" text="Item ID" />
                   <TableColumn fx:id="col2ItemDescription" prefWidth="471.20001220703125" text="Description" />
                   <TableColumn fx:id="col3ItemQty" prefWidth="93.5999755859375" text="Qty" />
-                  <TableColumn fx:id="col4ItemUnitPrice" prefWidth="146.4000244140625" text="Unit Price" />
-                  <TableColumn fx:id="col5Price" prefWidth="178.4000244140625" text="Price" />
+                  <TableColumn fx:id="col4ItemUnitPrice" prefWidth="146.4000244140625" styleClass="currencyAlign" text="Unit Price" />
+                  <TableColumn fx:id="col5Price" prefWidth="178.4000244140625" styleClass="currencyAlign" text="Price" />
                </columns>
             </TableView>
             <Label layoutX="52.0" layoutY="14.0" text="Item Id">
@@ -74,7 +74,7 @@
                   <Font name="System Bold" size="18.0" />
                </font>
             </Label>
-            <TextField fx:id="txtUnitPrice" layoutX="702.0" layoutY="50.0" onAction="#txtItemUnitPriceOnAction" prefHeight="25.0" prefWidth="137.0" style="-fx-background-color: #EEEEEE;" />
+            <TextField fx:id="txtUnitPrice" layoutX="702.0" layoutY="50.0" onAction="#txtItemUnitPriceOnAction" prefHeight="25.0" prefWidth="137.0" style="-fx-background-color: #EEEEEE;" styleClass="currencyAlign" stylesheets="@home.css" />
             <Label layoutX="879.0" layoutY="11.0" text="Qty">
                <font>
                   <Font name="System Bold" size="18.0" />
@@ -92,7 +92,7 @@
                   <Font name="System Bold" size="18.0" />
                </font>
             </Label>
-            <TextField fx:id="txtTotal" editable="false" layoutX="948.0" layoutY="393.0" prefHeight="25.0" prefWidth="149.0" style="-fx-background-color: #EEEEEE;" />
+            <TextField fx:id="txtTotal" editable="false" layoutX="948.0" layoutY="393.0" prefHeight="25.0" prefWidth="149.0" style="-fx-background-color: #EEEEEE;" styleClass="currencyAlign" stylesheets="@home.css" />
             <JFXButton fx:id="btnPrint" layoutX="872.0" layoutY="441.0" onAction="#btnPrintAndSaveOnAction" prefHeight="40.0" prefWidth="225.0" style="-fx-background-color: green;" styleClass="sideButton" stylesheets="@home.css" text="Print" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="18.0" />

@@ -22,6 +22,7 @@ import java.awt.*;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
+import java.util.Objects;
 import java.util.ResourceBundle;
 
 
@@ -207,6 +208,7 @@ public class HomeController implements Initializable {
         lUsername.setText(username);
         userName=username;
         userEditPane.setVisible(false);
+        if(Objects.equals(userName, "admin") || Objects.equals(userName, "Admin")) {btnAccount.setDisable(false);}
     }
 
     public void btnLoadDashboard1() throws IOException {

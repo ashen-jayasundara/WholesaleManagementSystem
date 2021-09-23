@@ -39,3 +39,7 @@
 .upButton{
   	-fx-text-background-color: #4d0099;
 }
+
+.currencyAlign {
+    -fx-alignment: CENTER-RIGHT;
+}
