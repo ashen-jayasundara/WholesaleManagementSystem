@@ -68,7 +68,7 @@
                   <Font name="System Bold" size="18.0" />
                </font>
             </Label>
-            <TextField fx:id="txtDescription" layoutX="230.0" layoutY="50.0" prefHeight="25.0" prefWidth="443.0" style="-fx-background-color: #EEEEEE;" />
+            <TextField fx:id="txtDescription" layoutX="232.0" layoutY="50.0" prefHeight="25.0" prefWidth="211.0" style="-fx-background-color: #EEEEEE;" />
             <Label layoutX="702.0" layoutY="12.0" text="Unit Price">
                <font>
                   <Font name="System Bold" size="18.0" />
@@ -108,6 +108,12 @@
                   <Font name="System Bold" size="18.0" />
                </font>
             </JFXButton>
+            <Label layoutX="480.0" layoutY="12.0" text="Brand">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </Label>
+            <TextField fx:id="txtBrand" layoutX="480.0" layoutY="50.0" prefHeight="25.0" prefWidth="188.0" style="-fx-background-color: #EEEEEE;" />
          </children>
       </Pane>
    </children>

@@ -83,6 +83,9 @@ public class PlaceOrderController implements Initializable {
     private TextField txtTotal;
 
     @FXML
+    private TextField txtBrand;
+
+    @FXML
     private JFXButton btnPrint;
 
     @FXML
@@ -225,6 +228,7 @@ public class PlaceOrderController implements Initializable {
             String id = cmdItemID.getValue();
             Item item  = SearchItemController.searchItem(id);
             txtDescription.setText(item.getItem_name());
+            txtBrand.setText(item.getBrand());
             txtUnitPrice.setText("" + item.getUnit_prize());
             txtQtyOnHand.setText(item.getAvailable_quantity() + "");
             txtUnitPrice.requestFocus();
