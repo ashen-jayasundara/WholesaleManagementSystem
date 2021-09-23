@@ -4,16 +4,19 @@ import edu.fct.wholesalemanagemetsystem.db.DBConnection;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.chart.*;
 import javafx.scene.control.Label;
 
+import java.net.URL;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.ResourceBundle;
 
-public class DashboardController {
+public class DashboardController implements Initializable {
 
     @FXML
     private Label totalCustomers;
@@ -176,6 +179,11 @@ public class DashboardController {
 
 
 
+
+    }
+
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
 
     }
 }

@@ -3,8 +3,7 @@ package edu.fct.wholesalemanagemetsystem.controller;
 import edu.fct.wholesalemanagemetsystem.db.DBConnection;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Node;
+import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
@@ -12,13 +11,14 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
-import javax.swing.*;
+import java.net.URL;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ResourceBundle;
 
-public class UserProfileController{
+public class UserProfileController implements Initializable {
 
     @FXML
     private Label UPLUserName;
@@ -122,5 +122,10 @@ public class UserProfileController{
     public void closeEditProfile1(ActionEvent actionEvent) {
         this.stage = (Stage)this.EditProfilePane.getScene().getWindow();
         this.stage.close();
+    }
+
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+
     }
 }

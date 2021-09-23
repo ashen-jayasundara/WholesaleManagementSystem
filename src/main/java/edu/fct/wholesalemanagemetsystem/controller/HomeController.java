@@ -5,6 +5,7 @@ import edu.fct.wholesalemanagemetsystem.Main;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -19,10 +20,12 @@ import javafx.stage.StageStyle;
 
 import java.awt.*;
 import java.io.IOException;
+import java.net.URL;
 import java.sql.SQLException;
+import java.util.ResourceBundle;
 
 
-public class HomeController {
+public class HomeController implements Initializable {
 
     @FXML
     private AnchorPane scenePane;
@@ -47,9 +50,6 @@ public class HomeController {
 
     @FXML
     private JFXButton btnSupplier;
-
-    @FXML
-    private JFXButton btnOrders;
 
     @FXML
     private JFXButton btnPurchases;
@@ -119,7 +119,6 @@ public class HomeController {
         btnItem.setDefaultButton(false);
         btnCustomer.setDefaultButton(false);
         btnSupplier.setDefaultButton(false);
-        btnOrders.setDefaultButton(false);
         btnPurchases.setDefaultButton(false);
         btnAccount.setDefaultButton(false);
     }
@@ -133,7 +132,6 @@ public class HomeController {
         btnItem.setDefaultButton(false);
         btnCustomer.setDefaultButton(false);
         btnSupplier.setDefaultButton(false);
-        btnOrders.setDefaultButton(false);
         btnPurchases.setDefaultButton(false);
         btnAccount.setDefaultButton(false);
     }
@@ -147,7 +145,6 @@ public class HomeController {
         btnItem.setDefaultButton(false);
         btnCustomer.setDefaultButton(true);
         btnSupplier.setDefaultButton(false);
-        btnOrders.setDefaultButton(false);
         btnPurchases.setDefaultButton(false);
         btnAccount.setDefaultButton(false);
     }
@@ -162,7 +159,6 @@ public class HomeController {
         btnItem.setDefaultButton(false);
         btnCustomer.setDefaultButton(false);
         btnSupplier.setDefaultButton(false);
-        btnOrders.setDefaultButton(false);
         btnPurchases.setDefaultButton(false);
         btnAccount.setDefaultButton(true);
     }
@@ -176,24 +172,10 @@ public class HomeController {
         btnItem.setDefaultButton(true);
         btnCustomer.setDefaultButton(false);
         btnSupplier.setDefaultButton(false);
-        btnOrders.setDefaultButton(false);
         btnPurchases.setDefaultButton(false);
         btnAccount.setDefaultButton(false);
     }
 
-    @FXML
-    void btnLordOrders(ActionEvent event) throws IOException {
-        Pane newLoadedPane =  FXMLLoader.load(Main.class.getResource("orders.fxml"));
-        showPane.getChildren().add(newLoadedPane);
-        btnDashboard.setDefaultButton(false);
-        btnPlaceOrder.setDefaultButton(false);
-        btnItem.setDefaultButton(false);
-        btnCustomer.setDefaultButton(false);
-        btnSupplier.setDefaultButton(false);
-        btnOrders.setDefaultButton(true);
-        btnPurchases.setDefaultButton(false);
-        btnAccount.setDefaultButton(false);
-    }
 
     @FXML
     void btnLordPurchases(ActionEvent event) throws IOException {
@@ -204,7 +186,6 @@ public class HomeController {
         btnItem.setDefaultButton(false);
         btnCustomer.setDefaultButton(false);
         btnSupplier.setDefaultButton(false);
-        btnOrders.setDefaultButton(false);
         btnPurchases.setDefaultButton(true);
         btnAccount.setDefaultButton(false);
     }
@@ -218,7 +199,6 @@ public class HomeController {
         btnItem.setDefaultButton(false);
         btnCustomer.setDefaultButton(false);
         btnSupplier.setDefaultButton(true);
-        btnOrders.setDefaultButton(false);
         btnPurchases.setDefaultButton(false);
         btnAccount.setDefaultButton(false);
     }
@@ -285,6 +265,11 @@ public class HomeController {
 
         stage.setX((dimension.width/2) - (stage.getWidth()/2));
         stage.setY((dimension.height/2) - (stage.getHeight()/2));
+    }
+
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+
     }
 }
 

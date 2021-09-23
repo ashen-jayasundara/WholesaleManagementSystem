@@ -3,15 +3,18 @@ package edu.fct.wholesalemanagemetsystem.controller;
 import edu.fct.wholesalemanagemetsystem.db.DBConnection;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
+import java.net.URL;
 import java.sql.Connection;
 import java.sql.Statement;
+import java.util.ResourceBundle;
 
-public class NewUserController {
+public class NewUserController implements Initializable {
 
     @FXML
     private AnchorPane NewUserPane;
@@ -78,5 +81,10 @@ public class NewUserController {
     public void closeNewUser1(MouseEvent mouseEvent) {
         this.stage = (Stage)this.NewUserPane.getScene().getWindow();
         this.stage.close();
+    }
+
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+
     }
 }

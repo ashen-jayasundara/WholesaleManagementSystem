@@ -125,21 +125,6 @@
                         <Insets left="40.0" />
                      </padding>
                   </JFXButton>
-                  <JFXButton fx:id="btnOrders" alignment="BASELINE_LEFT" layoutX="10.0" layoutY="244.0" onAction="#btnLordOrders" prefHeight="76.0" prefWidth="282.0" styleClass="sideButton" stylesheets="@home.css" text=" Orders" textFill="WHITE">
-                     <font>
-                        <Font name="System Bold" size="18.0" />
-                     </font>
-                     <graphic>
-                        <ImageView fitWidth="30.0" preserveRatio="true">
-                           <image>
-                              <Image url="@assets/orders.png" />
-                           </image>
-                        </ImageView>
-                     </graphic>
-                     <padding>
-                        <Insets left="40.0" />
-                     </padding>
-                  </JFXButton>
                   <JFXButton fx:id="btnPurchases" alignment="BASELINE_LEFT" layoutX="10.0" layoutY="320.0" onAction="#btnLordPurchases" prefHeight="76.0" prefWidth="282.0" styleClass="sideButton" stylesheets="@home.css" text=" Purchases" textFill="WHITE">
                      <font>
                         <Font name="System Bold" size="18.0" />
