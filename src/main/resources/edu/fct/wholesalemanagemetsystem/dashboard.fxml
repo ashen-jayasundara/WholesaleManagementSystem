@@ -15,7 +15,7 @@
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="815.0" prefWidth="1267.0" style="-fx-background-color: #eeeeee;" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.fct.wholesalemanagemetsystem.controller.DashboardController">
+<AnchorPane prefHeight="815.0" prefWidth="1267.0" style="-fx-background-color: #eeeeee;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.fct.wholesalemanagemetsystem.controller.DashboardController">
    <children>
       <Pane layoutX="70.0" layoutY="55.0" prefHeight="132.0" prefWidth="240.0" style="-fx-background-color: white; -fx-background-radius: 10px; -fx-border-color: grey; -fx-border-radius: 10px;">
          <padding>
@@ -130,7 +130,7 @@
                <children>
                   <HBox prefHeight="50.0" prefWidth="374.0" style="-fx-background-color: #eeeeee; -fx-border-color: #eeeeee;">
                      <children>
-                        <Label prefHeight="53.0" prefWidth="191.0" text="Today Report" textAlignment="CENTER">
+                        <Label prefHeight="53.0" prefWidth="191.0" text="Category" textAlignment="CENTER">
                            <font>
                               <Font name="System Bold" size="14.0" />
                            </font>
@@ -144,7 +144,7 @@
                               <Insets />
                            </HBox.margin>
                         </Label>
-                        <Label layoutX="11.0" layoutY="11.0" prefHeight="53.0" prefWidth="191.0" text="Rs." textAlignment="CENTER">
+                        <Label layoutX="11.0" layoutY="11.0" prefHeight="53.0" prefWidth="191.0" text="                                Rs." textAlignment="CENTER">
                            <font>
                               <Font name="System Bold" size="14.0" />
                            </font>

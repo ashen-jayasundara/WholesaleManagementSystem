@@ -53,7 +53,7 @@ public class NewCustomerController implements Initializable {
                 Alert alert = new Alert(Alert.AlertType.INFORMATION);
                 alert.setTitle("Information");
                 alert.setHeaderText(null);
-                alert.setContentText("Successfully Updated!");
+                alert.setContentText("Successfully Added!");
 
                 alert.showAndWait();
                 resetTextFields();
@@ -62,7 +62,7 @@ public class NewCustomerController implements Initializable {
                 Alert alert = new Alert(Alert.AlertType.ERROR);
                 alert.setTitle("Error");
                 alert.setHeaderText("");
-                alert.setContentText("Update Unsuccessful!");
+                alert.setContentText("Add Unsuccessful!");
 
                 alert.showAndWait();
             }
