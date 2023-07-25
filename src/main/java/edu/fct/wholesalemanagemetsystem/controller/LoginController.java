@@ -81,19 +81,21 @@ public class LoginController implements Initializable {
                 stage.setX((dimension.width/2) - (stage.getWidth()/2));
                 stage.setY((dimension.height/2) - (stage.getHeight()/2));
             } else {
+                //If password is incorrect
                 //JOptionPane.showMessageDialog((Component) null, "invalid password");
                 Alert alert = new Alert(Alert.AlertType.WARNING);
                 alert.setTitle("Warning!");
-                alert.setHeaderText("Your Password is Incorrect.");
-                alert.setContentText("Please Re-enter your Password.");
+                alert.setHeaderText("Your Username/Password is Incorrect.");
+                alert.setContentText("Please Re-enter your Username/Password.");
 
                 alert.showAndWait();
             }
         } else {
+            //If Username is incorrect
             Alert alert = new Alert(Alert.AlertType.WARNING);
             alert.setTitle("Warning!");
-            alert.setHeaderText("Your Username is Incorrect.");
-            alert.setContentText("Please Re-enter your Username.");
+            alert.setHeaderText("Your Username/Password is Incorrect.");
+            alert.setContentText("Please Re-enter your Username/Password.");
 
             alert.showAndWait();
         }
